@@ -1,0 +1,48 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="clrBackBoard" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">0, 0, 192</Value>
+    </Setting>
+    <Setting Name="clrFrontBoard" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">192, 0, 192</Value>
+    </Setting>
+    <Setting Name="clrCrossBrace" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">192, 0, 0</Value>
+    </Setting>
+    <Setting Name="bytWidthBa" Type="System.Byte" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="bytWidthFr" Type="System.Byte" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="bytWidthCr" Type="System.Byte" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="strLenBa" Type="System.String" Scope="User">
+      <Value Profile="(Default)">2300 mm</Value>
+    </Setting>
+    <Setting Name="strLenFr" Type="System.String" Scope="User">
+      <Value Profile="(Default)">2300 mm</Value>
+    </Setting>
+    <Setting Name="strLenCr" Type="System.String" Scope="User">
+      <Value Profile="(Default)">450 mm</Value>
+    </Setting>
+    <Setting Name="strHeight" Type="System.String" Scope="User">
+      <Value Profile="(Default)">138 mm</Value>
+    </Setting>
+    <Setting Name="strCutWidth" Type="System.String" Scope="User">
+      <Value Profile="(Default)">3 mm</Value>
+    </Setting>
+    <Setting Name="strSrcLength" Type="System.String" Scope="User">
+      <Value Profile="(Default)">2420 mm</Value>
+    </Setting>
+    <Setting Name="strSrcWidth" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1220 mm</Value>
+    </Setting>
+    <Setting Name="strGapCr" Type="System.String" Scope="User">
+      <Value Profile="(Default)">465 mm</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

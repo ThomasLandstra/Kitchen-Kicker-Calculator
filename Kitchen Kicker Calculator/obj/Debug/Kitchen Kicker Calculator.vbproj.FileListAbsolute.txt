@@ -1,0 +1,14 @@
+C:\Users\thoma\Documents\Development\- Visual Basic\Kitchen Kicker Calculator\Kitchen Kicker Calculator\obj\Debug\Kitchen Kicker Calculator.vbproj.AssemblyReference.cache
+C:\Users\thoma\Documents\Development\- Visual Basic\Kitchen Kicker Calculator\Kitchen Kicker Calculator\obj\Debug\Kitchen Kicker Calculator.vbproj.SuggestedBindingRedirects.cache
+C:\Users\thoma\Documents\Development\- Visual Basic\Kitchen Kicker Calculator\Kitchen Kicker Calculator\obj\Debug\Kitchen_Kicker_Calculator.formMain.resources
+C:\Users\thoma\Documents\Development\- Visual Basic\Kitchen Kicker Calculator\Kitchen Kicker Calculator\obj\Debug\Kitchen_Kicker_Calculator.Resources.resources
+C:\Users\thoma\Documents\Development\- Visual Basic\Kitchen Kicker Calculator\Kitchen Kicker Calculator\obj\Debug\Kitchen Kicker Calculator.vbproj.GenerateResource.cache
+C:\Users\thoma\Documents\Development\- Visual Basic\Kitchen Kicker Calculator\Kitchen Kicker Calculator\obj\Debug\Kitchen Kicker Calculator.vbproj.CoreCompileInputs.cache
+C:\Users\thoma\Documents\Development\- Visual Basic\Kitchen Kicker Calculator\Kitchen Kicker Calculator\bin\Debug\Kitchen Kicker Calculator.exe.config
+C:\Users\thoma\Documents\Development\- Visual Basic\Kitchen Kicker Calculator\Kitchen Kicker Calculator\bin\Debug\Kitchen Kicker Calculator.exe
+C:\Users\thoma\Documents\Development\- Visual Basic\Kitchen Kicker Calculator\Kitchen Kicker Calculator\bin\Debug\Kitchen Kicker Calculator.pdb
+C:\Users\thoma\Documents\Development\- Visual Basic\Kitchen Kicker Calculator\Kitchen Kicker Calculator\bin\Debug\Kitchen Kicker Calculator.xml
+C:\Users\thoma\Documents\Development\- Visual Basic\Kitchen Kicker Calculator\Kitchen Kicker Calculator\obj\Debug\Kitchen Kicker Calculator.exe
+C:\Users\thoma\Documents\Development\- Visual Basic\Kitchen Kicker Calculator\Kitchen Kicker Calculator\obj\Debug\Kitchen Kicker Calculator.xml
+C:\Users\thoma\Documents\Development\- Visual Basic\Kitchen Kicker Calculator\Kitchen Kicker Calculator\obj\Debug\Kitchen Kicker Calculator.pdb
+C:\Users\thoma\Documents\Development\- Visual Basic\Kitchen Kicker Calculator\Kitchen Kicker Calculator\obj\Debug\Kitchen_Kicker_Calculator.formSettings.resources
