@@ -55,6 +55,7 @@
             Dim astrTextSplit As String() = strText.Split(" ")
             If astrTextSplit.Length <> 2 Then
                 Warning("There can only be two words in the distance")
+                Exit Property
             End If
 
             ' Ensure value unit is valid

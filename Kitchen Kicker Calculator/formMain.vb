@@ -154,49 +154,49 @@ Public Class formMain
         Select Case dtbx.Name
             Case "dtbxLenFr"
                 If Not boolIsValidEntry Then
-                    dtbx.Millimetres = dstrLenFr.Millimetres
+                    dtbx.Text = dstrLenFr.Text
                 End If
                 dstrLenFr.Text = dtbx.Text
                 My.Settings.strLenFr = dstrLenFr.Text
             Case "dtbxLenBa"
                 If Not boolIsValidEntry Then
-                    dtbx.Millimetres = dstrLenBa.Millimetres
+                    dtbx.Text = dstrLenBa.Text
                 End If
                 dstrLenBa.Text = dtbx.Text
                 My.Settings.strLenBa = dstrLenBa.Text
             Case "dtbxLenCr"
                 If Not boolIsValidEntry Then
-                    dtbx.Millimetres = dstrLenCr.Millimetres
+                    dtbx.Text = dstrLenCr.Text
                 End If
                 dstrLenCr.Text = dtbx.Text
                 My.Settings.strLenCr = dstrLenCr.Text
             Case "dtbxHeight"
                 If Not boolIsValidEntry Then
-                    dtbx.Millimetres = dstrHeight.Millimetres
+                    dtbx.Text = dstrHeight.Text
                 End If
                 dstrHeight.Text = dtbx.Text
                 My.Settings.strHeight = dstrHeight.Text
             Case "dtbxCutWidth"
                 If Not boolIsValidEntry Then
-                    dtbx.Millimetres = dstrCutWidth.Millimetres
+                    dtbx.Text = dstrCutWidth.Text
                 End If
                 dstrCutWidth.Text = dtbx.Text
                 My.Settings.strCutWidth = dstrCutWidth.Text
             Case "dtbxSrcLength"
                 If Not boolIsValidEntry Then
-                    dtbx.Millimetres = dstrSrcLength.Millimetres
+                    dtbx.Text = dstrSrcLength.Text
                 End If
                 dstrSrcLength.Text = dtbx.Text
                 My.Settings.strSrcLength = dstrSrcLength.Text
             Case "dtbxSrcWidth"
                 If Not boolIsValidEntry Then
-                    dtbx.Millimetres = dstrSrcWidth.Millimetres
+                    dtbx.Text = dstrSrcWidth.Text
                 End If
                 dstrSrcWidth.Text = dtbx.Text
                 My.Settings.strSrcWidth = dstrSrcWidth.Text
             Case "dtbxGapCr"
                 If Not boolIsValidEntry Then
-                    dtbx.Millimetres = dstrGapCr.Millimetres
+                    dtbx.Text = dstrGapCr.Text
                 End If
                 dstrGapCr.Text = dtbx.Text
                 My.Settings.strGapCr = dstrGapCr.Text
