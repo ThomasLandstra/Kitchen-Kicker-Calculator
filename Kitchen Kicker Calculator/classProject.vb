@@ -19,6 +19,8 @@
     '' Output properties
     Public ReadOnly Property SheetsUsed As Byte
         Get
+            Return 0
+
             ' How many strips per sheet
             Dim bytStripsPerSheet As Byte = Math.Floor(ui16LenShortSide / dstrHeight.Millimetres)
 

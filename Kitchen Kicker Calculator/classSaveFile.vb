@@ -18,6 +18,15 @@
         End Set
     End Property
 
+    Public Property FilePath As String
+        Get
+            Return _strFilePath
+        End Get
+        Set(strFilePath As String)
+            _strFilePath = strFilePath
+        End Set
+    End Property
+
     ' METHODS
     Public Sub New(prjProject As Project, strFilePath As String)
         _prjProject = prjProject
@@ -35,7 +44,7 @@
             strElement &= Str(ke.LinearMillimetres) & ","
             strElement &= Str(ke.ExtraFrontBoards) & ","
             strElement &= Str(ke.ExtraBackBoards) & ","
-            strElement &= Str(ke.ExtraCrossBraces) & ","
+            strElement &= Str(ke.ExtraCrossBraces)
             strSaveString = strSaveString & vbLf & strElement
         Next
 

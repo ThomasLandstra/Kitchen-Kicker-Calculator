@@ -279,6 +279,8 @@ Public Class formMain
         Next
 
         ChangeElement()
+        prjActiveProject.SaveFile.FilePath = odOpenDialog.FileName
+        prjActiveProject.SaveFile.IsSaved = True
     End Sub
     Private Sub SaveProject() Handles smiSave.Click
         Dim srSaveResult As SaveResult = prjActiveProject.SaveFile.Save()
@@ -336,5 +338,17 @@ Public Class formMain
         End Select
 
         pbxDiagramBox.Image.Save(sdImageSaveDialog.FileName, ifImageFormat)
+    End Sub
+
+    Private Sub LinearMetresChanged(sender As Object, e As EventArgs) Handles dtbxLinearMetres.LostFocus
+
+    End Sub
+
+    Private Sub ExtraTextChanged(sender As Object, e As EventArgs) Handles etbxExtraFr.LostFocus, etbxExtraCr.LostFocus, etbxExtraBa.LostFocus
+
+    End Sub
+
+    Private Sub SourceDimensionsChanged(sender As Object, e As EventArgs) Handles dtbxSrcWidth.LostFocus, dtbxSrcLength.LostFocus, dtbxLenFr.LostFocus, dtbxLenCr.LostFocus, dtbxLenBa.LostFocus, dtbxHeight.LostFocus, dtbxGapCr.LostFocus, dtbxCutWidth.LostFocus
+
     End Sub
 End Class

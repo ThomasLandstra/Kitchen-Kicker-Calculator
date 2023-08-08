@@ -39,7 +39,6 @@ Partial Class formMain
         Me.mniFile = New System.Windows.Forms.ToolStripMenuItem()
         Me.mstrpMainForm = New System.Windows.Forms.MenuStrip()
         Me.pnlEditor = New System.Windows.Forms.Panel()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.tblProjectOuts = New System.Windows.Forms.TableLayoutPanel()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -60,20 +59,16 @@ Partial Class formMain
         Me.lblPrjOutCr = New System.Windows.Forms.Label()
         Me.lblPrjOutBa = New System.Windows.Forms.Label()
         Me.lblPrjOutFr = New System.Windows.Forms.Label()
-        Me.dtbxLinearMetres = New Kitchen_Kicker_Calculator.DistanceTextBox()
         Me.btnSrcSave = New System.Windows.Forms.Button()
         Me.tblElementOuts = New System.Windows.Forms.TableLayoutPanel()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lblCrossBraces = New System.Windows.Forms.Label()
         Me.lblElOutCr = New System.Windows.Forms.Label()
-        Me.etbxExtraCr = New Kitchen_Kicker_Calculator.EscapableTextBox()
-        Me.etbxExtraBa = New Kitchen_Kicker_Calculator.EscapableTextBox()
         Me.lblElOutBa = New System.Windows.Forms.Label()
         Me.lblBackBoards = New System.Windows.Forms.Label()
         Me.lblFrontBoards = New System.Windows.Forms.Label()
         Me.lblElOutFr = New System.Windows.Forms.Label()
-        Me.etbxExtraFr = New Kitchen_Kicker_Calculator.EscapableTextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.tblSrcMaterials = New System.Windows.Forms.TableLayoutPanel()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -83,15 +78,7 @@ Partial Class formMain
         Me.Label30 = New System.Windows.Forms.Label()
         Me.Label31 = New System.Windows.Forms.Label()
         Me.Label32 = New System.Windows.Forms.Label()
-        Me.dtbxLenFr = New Kitchen_Kicker_Calculator.DistanceTextBox()
-        Me.dtbxLenBa = New Kitchen_Kicker_Calculator.DistanceTextBox()
-        Me.dtbxLenCr = New Kitchen_Kicker_Calculator.DistanceTextBox()
-        Me.dtbxHeight = New Kitchen_Kicker_Calculator.DistanceTextBox()
-        Me.dtbxCutWidth = New Kitchen_Kicker_Calculator.DistanceTextBox()
-        Me.dtbxSrcWidth = New Kitchen_Kicker_Calculator.DistanceTextBox()
-        Me.dtbxSrcLength = New Kitchen_Kicker_Calculator.DistanceTextBox()
         Me.Label33 = New System.Windows.Forms.Label()
-        Me.dtbxGapCr = New Kitchen_Kicker_Calculator.DistanceTextBox()
         Me.lblProjectSettings = New System.Windows.Forms.Label()
         Me.lblOutput = New System.Windows.Forms.Label()
         Me.lblLinealMeters = New System.Windows.Forms.Label()
@@ -107,6 +94,18 @@ Partial Class formMain
         Me.pbxDiagramBox = New System.Windows.Forms.PictureBox()
         Me.btnToEditor = New System.Windows.Forms.Button()
         Me.odOpenDialog = New System.Windows.Forms.OpenFileDialog()
+        Me.dtbxLinearMetres = New Kitchen_Kicker_Calculator.DistanceTextBox()
+        Me.etbxExtraCr = New Kitchen_Kicker_Calculator.EscapableTextBox()
+        Me.etbxExtraBa = New Kitchen_Kicker_Calculator.EscapableTextBox()
+        Me.etbxExtraFr = New Kitchen_Kicker_Calculator.EscapableTextBox()
+        Me.dtbxLenFr = New Kitchen_Kicker_Calculator.DistanceTextBox()
+        Me.dtbxLenBa = New Kitchen_Kicker_Calculator.DistanceTextBox()
+        Me.dtbxLenCr = New Kitchen_Kicker_Calculator.DistanceTextBox()
+        Me.dtbxHeight = New Kitchen_Kicker_Calculator.DistanceTextBox()
+        Me.dtbxCutWidth = New Kitchen_Kicker_Calculator.DistanceTextBox()
+        Me.dtbxSrcWidth = New Kitchen_Kicker_Calculator.DistanceTextBox()
+        Me.dtbxSrcLength = New Kitchen_Kicker_Calculator.DistanceTextBox()
+        Me.dtbxGapCr = New Kitchen_Kicker_Calculator.DistanceTextBox()
         Me.ctxmDiagram.SuspendLayout()
         Me.ctxmFile.SuspendLayout()
         Me.mstrpMainForm.SuspendLayout()
@@ -225,7 +224,6 @@ Partial Class formMain
         '
         'pnlEditor
         '
-        Me.pnlEditor.Controls.Add(Me.Button1)
         Me.pnlEditor.Controls.Add(Me.Label26)
         Me.pnlEditor.Controls.Add(Me.tblProjectOuts)
         Me.pnlEditor.Controls.Add(Me.dtbxLinearMetres)
@@ -244,15 +242,6 @@ Partial Class formMain
         Me.pnlEditor.Name = "pnlEditor"
         Me.pnlEditor.Size = New System.Drawing.Size(960, 457)
         Me.pnlEditor.TabIndex = 32
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(556, 305)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 43
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'Label26
         '
@@ -512,18 +501,6 @@ Partial Class formMain
         Me.lblPrjOutFr.Text = "--"
         Me.lblPrjOutFr.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'dtbxLinearMetres
-        '
-        Me.dtbxLinearMetres.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtbxLinearMetres.Location = New System.Drawing.Point(118, 37)
-        Me.dtbxLinearMetres.MaxLength = 15
-        Me.dtbxLinearMetres.Millimetres = CType(0US, UShort)
-        Me.dtbxLinearMetres.Name = "dtbxLinearMetres"
-        Me.dtbxLinearMetres.Size = New System.Drawing.Size(133, 29)
-        Me.dtbxLinearMetres.TabIndex = 40
-        Me.dtbxLinearMetres.Text = " 0 m"
-        Me.dtbxLinearMetres.Unit = "m"
-        '
         'btnSrcSave
         '
         Me.btnSrcSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -613,24 +590,6 @@ Partial Class formMain
         Me.lblElOutCr.Text = "--"
         Me.lblElOutCr.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'etbxExtraCr
-        '
-        Me.etbxExtraCr.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.etbxExtraCr.Location = New System.Drawing.Point(193, 93)
-        Me.etbxExtraCr.MaxLength = 2
-        Me.etbxExtraCr.Name = "etbxExtraCr"
-        Me.etbxExtraCr.Size = New System.Drawing.Size(50, 29)
-        Me.etbxExtraCr.TabIndex = 38
-        '
-        'etbxExtraBa
-        '
-        Me.etbxExtraBa.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.etbxExtraBa.Location = New System.Drawing.Point(193, 63)
-        Me.etbxExtraBa.MaxLength = 2
-        Me.etbxExtraBa.Name = "etbxExtraBa"
-        Me.etbxExtraBa.Size = New System.Drawing.Size(50, 29)
-        Me.etbxExtraBa.TabIndex = 37
-        '
         'lblElOutBa
         '
         Me.lblElOutBa.AutoSize = True
@@ -677,15 +636,6 @@ Partial Class formMain
         Me.lblElOutFr.TabIndex = 12
         Me.lblElOutFr.Text = "--"
         Me.lblElOutFr.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'etbxExtraFr
-        '
-        Me.etbxExtraFr.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.etbxExtraFr.Location = New System.Drawing.Point(193, 33)
-        Me.etbxExtraFr.MaxLength = 2
-        Me.etbxExtraFr.Name = "etbxExtraFr"
-        Me.etbxExtraFr.Size = New System.Drawing.Size(50, 29)
-        Me.etbxExtraFr.TabIndex = 36
         '
         'Label2
         '
@@ -806,90 +756,6 @@ Partial Class formMain
         Me.Label32.TabIndex = 35
         Me.Label32.Text = "Source Length"
         '
-        'dtbxLenFr
-        '
-        Me.dtbxLenFr.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtbxLenFr.Location = New System.Drawing.Point(114, 3)
-        Me.dtbxLenFr.MaxLength = 15
-        Me.dtbxLenFr.Millimetres = CType(0US, UShort)
-        Me.dtbxLenFr.Name = "dtbxLenFr"
-        Me.dtbxLenFr.Size = New System.Drawing.Size(100, 29)
-        Me.dtbxLenFr.TabIndex = 36
-        Me.dtbxLenFr.Text = " 0 m"
-        Me.dtbxLenFr.Unit = "m"
-        '
-        'dtbxLenBa
-        '
-        Me.dtbxLenBa.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtbxLenBa.Location = New System.Drawing.Point(114, 45)
-        Me.dtbxLenBa.MaxLength = 15
-        Me.dtbxLenBa.Millimetres = CType(0US, UShort)
-        Me.dtbxLenBa.Name = "dtbxLenBa"
-        Me.dtbxLenBa.Size = New System.Drawing.Size(100, 29)
-        Me.dtbxLenBa.TabIndex = 37
-        Me.dtbxLenBa.Text = " 0 m"
-        Me.dtbxLenBa.Unit = "m"
-        '
-        'dtbxLenCr
-        '
-        Me.dtbxLenCr.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtbxLenCr.Location = New System.Drawing.Point(114, 87)
-        Me.dtbxLenCr.MaxLength = 15
-        Me.dtbxLenCr.Millimetres = CType(0US, UShort)
-        Me.dtbxLenCr.Name = "dtbxLenCr"
-        Me.dtbxLenCr.Size = New System.Drawing.Size(100, 29)
-        Me.dtbxLenCr.TabIndex = 38
-        Me.dtbxLenCr.Text = " 0 m"
-        Me.dtbxLenCr.Unit = "m"
-        '
-        'dtbxHeight
-        '
-        Me.dtbxHeight.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtbxHeight.Location = New System.Drawing.Point(336, 3)
-        Me.dtbxHeight.MaxLength = 15
-        Me.dtbxHeight.Millimetres = CType(0US, UShort)
-        Me.dtbxHeight.Name = "dtbxHeight"
-        Me.dtbxHeight.Size = New System.Drawing.Size(100, 29)
-        Me.dtbxHeight.TabIndex = 39
-        Me.dtbxHeight.Text = " 0 m"
-        Me.dtbxHeight.Unit = "m"
-        '
-        'dtbxCutWidth
-        '
-        Me.dtbxCutWidth.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtbxCutWidth.Location = New System.Drawing.Point(336, 45)
-        Me.dtbxCutWidth.MaxLength = 10
-        Me.dtbxCutWidth.Millimetres = CType(0US, UShort)
-        Me.dtbxCutWidth.Name = "dtbxCutWidth"
-        Me.dtbxCutWidth.Size = New System.Drawing.Size(100, 29)
-        Me.dtbxCutWidth.TabIndex = 40
-        Me.dtbxCutWidth.Text = " 0 m"
-        Me.dtbxCutWidth.Unit = "m"
-        '
-        'dtbxSrcWidth
-        '
-        Me.dtbxSrcWidth.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtbxSrcWidth.Location = New System.Drawing.Point(558, 3)
-        Me.dtbxSrcWidth.MaxLength = 15
-        Me.dtbxSrcWidth.Millimetres = CType(0US, UShort)
-        Me.dtbxSrcWidth.Name = "dtbxSrcWidth"
-        Me.dtbxSrcWidth.Size = New System.Drawing.Size(100, 29)
-        Me.dtbxSrcWidth.TabIndex = 41
-        Me.dtbxSrcWidth.Text = " 0 m"
-        Me.dtbxSrcWidth.Unit = "m"
-        '
-        'dtbxSrcLength
-        '
-        Me.dtbxSrcLength.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtbxSrcLength.Location = New System.Drawing.Point(558, 45)
-        Me.dtbxSrcLength.MaxLength = 15
-        Me.dtbxSrcLength.Millimetres = CType(0US, UShort)
-        Me.dtbxSrcLength.Name = "dtbxSrcLength"
-        Me.dtbxSrcLength.Size = New System.Drawing.Size(100, 29)
-        Me.dtbxSrcLength.TabIndex = 42
-        Me.dtbxSrcLength.Text = " 0 m"
-        Me.dtbxSrcLength.Unit = "m"
-        '
         'Label33
         '
         Me.Label33.AutoSize = True
@@ -899,18 +765,6 @@ Partial Class formMain
         Me.Label33.Size = New System.Drawing.Size(104, 39)
         Me.Label33.TabIndex = 43
         Me.Label33.Text = "Cross Brace Gap"
-        '
-        'dtbxGapCr
-        '
-        Me.dtbxGapCr.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtbxGapCr.Location = New System.Drawing.Point(336, 87)
-        Me.dtbxGapCr.MaxLength = 15
-        Me.dtbxGapCr.Millimetres = CType(0US, UShort)
-        Me.dtbxGapCr.Name = "dtbxGapCr"
-        Me.dtbxGapCr.Size = New System.Drawing.Size(100, 29)
-        Me.dtbxGapCr.TabIndex = 44
-        Me.dtbxGapCr.Text = " 0 m"
-        Me.dtbxGapCr.Unit = "m"
         '
         'lblProjectSettings
         '
@@ -1056,6 +910,141 @@ Partial Class formMain
         Me.odOpenDialog.DefaultExt = "csv"
         Me.odOpenDialog.Filter = "CSV Files|*.csv"
         '
+        'dtbxLinearMetres
+        '
+        Me.dtbxLinearMetres.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtbxLinearMetres.Location = New System.Drawing.Point(118, 37)
+        Me.dtbxLinearMetres.MaxLength = 15
+        Me.dtbxLinearMetres.Millimetres = CType(0US, UShort)
+        Me.dtbxLinearMetres.Name = "dtbxLinearMetres"
+        Me.dtbxLinearMetres.Size = New System.Drawing.Size(133, 29)
+        Me.dtbxLinearMetres.TabIndex = 40
+        Me.dtbxLinearMetres.Text = " 0 m"
+        Me.dtbxLinearMetres.Unit = "m"
+        '
+        'etbxExtraCr
+        '
+        Me.etbxExtraCr.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.etbxExtraCr.Location = New System.Drawing.Point(193, 93)
+        Me.etbxExtraCr.MaxLength = 2
+        Me.etbxExtraCr.Name = "etbxExtraCr"
+        Me.etbxExtraCr.Size = New System.Drawing.Size(50, 29)
+        Me.etbxExtraCr.TabIndex = 38
+        '
+        'etbxExtraBa
+        '
+        Me.etbxExtraBa.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.etbxExtraBa.Location = New System.Drawing.Point(193, 63)
+        Me.etbxExtraBa.MaxLength = 2
+        Me.etbxExtraBa.Name = "etbxExtraBa"
+        Me.etbxExtraBa.Size = New System.Drawing.Size(50, 29)
+        Me.etbxExtraBa.TabIndex = 37
+        '
+        'etbxExtraFr
+        '
+        Me.etbxExtraFr.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.etbxExtraFr.Location = New System.Drawing.Point(193, 33)
+        Me.etbxExtraFr.MaxLength = 2
+        Me.etbxExtraFr.Name = "etbxExtraFr"
+        Me.etbxExtraFr.Size = New System.Drawing.Size(50, 29)
+        Me.etbxExtraFr.TabIndex = 36
+        '
+        'dtbxLenFr
+        '
+        Me.dtbxLenFr.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtbxLenFr.Location = New System.Drawing.Point(114, 3)
+        Me.dtbxLenFr.MaxLength = 15
+        Me.dtbxLenFr.Millimetres = CType(0US, UShort)
+        Me.dtbxLenFr.Name = "dtbxLenFr"
+        Me.dtbxLenFr.Size = New System.Drawing.Size(100, 29)
+        Me.dtbxLenFr.TabIndex = 36
+        Me.dtbxLenFr.Text = " 0 m"
+        Me.dtbxLenFr.Unit = "m"
+        '
+        'dtbxLenBa
+        '
+        Me.dtbxLenBa.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtbxLenBa.Location = New System.Drawing.Point(114, 45)
+        Me.dtbxLenBa.MaxLength = 15
+        Me.dtbxLenBa.Millimetres = CType(0US, UShort)
+        Me.dtbxLenBa.Name = "dtbxLenBa"
+        Me.dtbxLenBa.Size = New System.Drawing.Size(100, 29)
+        Me.dtbxLenBa.TabIndex = 37
+        Me.dtbxLenBa.Text = " 0 m"
+        Me.dtbxLenBa.Unit = "m"
+        '
+        'dtbxLenCr
+        '
+        Me.dtbxLenCr.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtbxLenCr.Location = New System.Drawing.Point(114, 87)
+        Me.dtbxLenCr.MaxLength = 15
+        Me.dtbxLenCr.Millimetres = CType(0US, UShort)
+        Me.dtbxLenCr.Name = "dtbxLenCr"
+        Me.dtbxLenCr.Size = New System.Drawing.Size(100, 29)
+        Me.dtbxLenCr.TabIndex = 38
+        Me.dtbxLenCr.Text = " 0 m"
+        Me.dtbxLenCr.Unit = "m"
+        '
+        'dtbxHeight
+        '
+        Me.dtbxHeight.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtbxHeight.Location = New System.Drawing.Point(336, 3)
+        Me.dtbxHeight.MaxLength = 15
+        Me.dtbxHeight.Millimetres = CType(0US, UShort)
+        Me.dtbxHeight.Name = "dtbxHeight"
+        Me.dtbxHeight.Size = New System.Drawing.Size(100, 29)
+        Me.dtbxHeight.TabIndex = 39
+        Me.dtbxHeight.Text = " 0 m"
+        Me.dtbxHeight.Unit = "m"
+        '
+        'dtbxCutWidth
+        '
+        Me.dtbxCutWidth.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtbxCutWidth.Location = New System.Drawing.Point(336, 45)
+        Me.dtbxCutWidth.MaxLength = 10
+        Me.dtbxCutWidth.Millimetres = CType(0US, UShort)
+        Me.dtbxCutWidth.Name = "dtbxCutWidth"
+        Me.dtbxCutWidth.Size = New System.Drawing.Size(100, 29)
+        Me.dtbxCutWidth.TabIndex = 40
+        Me.dtbxCutWidth.Text = " 0 m"
+        Me.dtbxCutWidth.Unit = "m"
+        '
+        'dtbxSrcWidth
+        '
+        Me.dtbxSrcWidth.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtbxSrcWidth.Location = New System.Drawing.Point(558, 3)
+        Me.dtbxSrcWidth.MaxLength = 15
+        Me.dtbxSrcWidth.Millimetres = CType(0US, UShort)
+        Me.dtbxSrcWidth.Name = "dtbxSrcWidth"
+        Me.dtbxSrcWidth.Size = New System.Drawing.Size(100, 29)
+        Me.dtbxSrcWidth.TabIndex = 41
+        Me.dtbxSrcWidth.Text = " 0 m"
+        Me.dtbxSrcWidth.Unit = "m"
+        '
+        'dtbxSrcLength
+        '
+        Me.dtbxSrcLength.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtbxSrcLength.Location = New System.Drawing.Point(558, 45)
+        Me.dtbxSrcLength.MaxLength = 15
+        Me.dtbxSrcLength.Millimetres = CType(0US, UShort)
+        Me.dtbxSrcLength.Name = "dtbxSrcLength"
+        Me.dtbxSrcLength.Size = New System.Drawing.Size(100, 29)
+        Me.dtbxSrcLength.TabIndex = 42
+        Me.dtbxSrcLength.Text = " 0 m"
+        Me.dtbxSrcLength.Unit = "m"
+        '
+        'dtbxGapCr
+        '
+        Me.dtbxGapCr.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtbxGapCr.Location = New System.Drawing.Point(336, 87)
+        Me.dtbxGapCr.MaxLength = 15
+        Me.dtbxGapCr.Millimetres = CType(0US, UShort)
+        Me.dtbxGapCr.Name = "dtbxGapCr"
+        Me.dtbxGapCr.Size = New System.Drawing.Size(100, 29)
+        Me.dtbxGapCr.TabIndex = 44
+        Me.dtbxGapCr.Text = " 0 m"
+        Me.dtbxGapCr.Unit = "m"
+        '
         'formMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
@@ -1170,5 +1159,4 @@ Partial Class formMain
     Friend WithEvents Label7 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
-    Friend WithEvents Button1 As Button
 End Class
