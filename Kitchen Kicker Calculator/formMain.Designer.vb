@@ -146,21 +146,20 @@ Partial Class formMain
         Me.ctxmDiagram.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ctxmDiagram.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.smiExportDiagram, Me.smiDiagramPrefrences})
         Me.ctxmDiagram.Name = "ctxmDiagram"
-        Me.ctxmDiagram.OwnerItem = Me.mniDiagram
         Me.ctxmDiagram.ShowImageMargin = False
-        Me.ctxmDiagram.Size = New System.Drawing.Size(184, 52)
+        Me.ctxmDiagram.Size = New System.Drawing.Size(192, 52)
         '
         'smiExportDiagram
         '
         Me.smiExportDiagram.Name = "smiExportDiagram"
-        Me.smiExportDiagram.Size = New System.Drawing.Size(183, 24)
+        Me.smiExportDiagram.Size = New System.Drawing.Size(191, 24)
         Me.smiExportDiagram.Text = "Save Diagram"
         '
         'smiDiagramPrefrences
         '
         Me.smiDiagramPrefrences.Name = "smiDiagramPrefrences"
-        Me.smiDiagramPrefrences.Size = New System.Drawing.Size(183, 24)
-        Me.smiDiagramPrefrences.Text = "Diagram Prefrences"
+        Me.smiDiagramPrefrences.Size = New System.Drawing.Size(191, 24)
+        Me.smiDiagramPrefrences.Text = "Diagram Preferences"
         '
         'mniDiagram
         '

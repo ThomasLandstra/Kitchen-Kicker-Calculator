@@ -98,6 +98,8 @@
     <Compile Include="classKitchenElement.vb" />
     <Compile Include="classProject.vb" />
     <Compile Include="classSaveFile.vb" />
+    <Compile Include="classSrcSheet.vb" />
+    <Compile Include="classSrcStrip.vb" />
     <Compile Include="formMain.vb">
       <SubType>Form</SubType>
     </Compile>

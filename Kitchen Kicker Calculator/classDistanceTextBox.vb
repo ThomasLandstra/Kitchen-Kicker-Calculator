@@ -7,9 +7,19 @@
         MyBase.New()
     End Sub
 
+    Public Overrides Property Text As String
+        Get
+            Return MyBase.Text
+        End Get
+        Set(strText As String)
+            MyBase.Text = strText
+            _dstrDistance.Text = MyBase.Text
+        End Set
+    End Property
 
     Public Property Millimetres As UInt16
         Get
+
             Return _dstrDistance.Millimetres
         End Get
         Set(ui16Millimetres As UInt16)

@@ -12,27 +12,6 @@
     Public dstrSrcWidth As DistanceString = New DistanceString(My.Settings.strSrcWidth)
     Public dstrGapCr As DistanceString = New DistanceString(My.Settings.strGapCr)
 
-    Public Property ui16LenBa As UInt16
-        Get
-            Return dstrLenBa.Millimetres
-        End Get
-        Set(ui16 As UInt16)
-            dstrLenBa.Millimetres = ui16
-        End Set
-    End Property
-
-    Public ReadOnly Property ui16LenFr As UInt16
-        Get
-            Return dstrLenFr.Millimetres
-        End Get
-    End Property
-
-    Public ReadOnly Property ui16LenCr As UInt16
-        Get
-            Return dstrLenCr.Millimetres
-        End Get
-    End Property
-
     Public ReadOnly Property ui16LenLongSide As UInt16
         Get
             Return Math.Max(dstrSrcLength.Millimetres, dstrSrcWidth.Millimetres)

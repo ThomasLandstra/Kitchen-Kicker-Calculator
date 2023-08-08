@@ -77,7 +77,7 @@ Public Class formMain
         Next
 
         lblSheetsUsed.Text = prjActiveProject.SheetsUsed
-        lblWaste.Text = Str(prjActiveProject.WasteSquareMillimetreage / 100000) & " m^2"
+        lblWaste.Text = Str(prjActiveProject.WasteSquareMillimetreage / 1000000) & " m^2"
     End Sub
 
 

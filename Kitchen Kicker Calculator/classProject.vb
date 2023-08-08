@@ -19,8 +19,6 @@
     '' Output properties
     Public ReadOnly Property SheetsUsed As Byte
         Get
-            Return 0
-
             ' How many strips per sheet
             Dim bytStripsPerSheet As Byte = Math.Floor(ui16LenShortSide / dstrHeight.Millimetres)
 
@@ -33,12 +31,9 @@
             Dim ui16RequiredCr As UInt16
 
             For Each ke In KitchenElements
-                If ke.FrontBoards = 0 Or ke.BackBoards = 0 Then
-                    Continue For
-                End If
-                ui16RequiredFr += ke.FrontBoards
-                ui16RequiredBa += ke.BackBoards
-                ui16RequiredCr += ke.CrossBraces
+                ui16RequiredFr += ke.FrontBoards + ke.ExtraFrontBoards
+                ui16RequiredBa += ke.BackBoards + ke.ExtraBackBoards
+                ui16RequiredCr += ke.CrossBraces + ke.ExtraCrossBraces
             Next
 
             Dim ui16StripsNeeded As UInt16
@@ -55,65 +50,25 @@
     Public ReadOnly Property CutsMade As Byte
     Public ReadOnly Property WasteSquareMillimetreage As UInt32
         Get
-            Return 0
-            Dim dblTotalWaste As Double = 0
-
-            ' How many strips per sheet
-            Dim bytStripsPerSheet As Byte = Math.Floor(ui16LenShortSide / dstrHeight.Millimetres)
-
-            ' How much waste per sheet
-            Dim a = (bytStripsPerSheet * dstrHeight.Millimetres)
-            Dim b As UInt64 = (ui16LenShortSide - a)
-            Dim ui16WastePerSheet As UInt64 = ui16LenLongSide * b
-            dblTotalWaste += ui16WastePerSheet * SheetsUsed
-
-            ' How much waste per each componenet
-            Dim bytFrPerStrip As Byte = Math.Floor(ui16LenLongSide / ui16LenFr)
-            Dim bytBaPerStrip As Byte = Math.Floor(ui16LenLongSide / ui16LenBa)
-            Dim bytCrPerStrip As Byte = Math.Floor(ui16LenLongSide / ui16LenCr)
-
             Dim ui16RequiredFr As UInt16
             Dim ui16RequiredBa As UInt16
             Dim ui16RequiredCr As UInt16
 
             For Each ke In KitchenElements
-                If ke.FrontBoards = 0 Or ke.BackBoards = 0 Then
-                    Continue For
-                End If
-                ui16RequiredFr += ke.FrontBoards
-                ui16RequiredBa += ke.BackBoards
-                ui16RequiredCr += ke.CrossBraces
+                ui16RequiredFr += ke.FrontBoards + ke.ExtraFrontBoards
+                ui16RequiredBa += ke.BackBoards + ke.ExtraBackBoards
+                ui16RequiredCr += ke.CrossBraces + ke.ExtraCrossBraces
             Next
 
-            ' Stupid rounding and stuff
-            Dim bytFullStripsFr As Byte = Math.Floor(ui16RequiredFr / bytFrPerStrip)
-            Dim bytFullStripsBa As Byte = Math.Floor(ui16RequiredBa / bytBaPerStrip)
-            Dim bytFullStripsCr As Byte = Math.Floor(ui16RequiredCr / bytCrPerStrip)
+            Dim ui32AreaFr As UInt32 = Convert.ToUInt32(dstrLenFr.Millimetres) * dstrHeight.Millimetres
+            Dim ui32AreaBa As UInt32 = Convert.ToUInt32(dstrLenBa.Millimetres) * dstrHeight.Millimetres
+            Dim ui32AreaCr As UInt32 = Convert.ToUInt32(dstrLenCr.Millimetres) * dstrHeight.Millimetres
 
-            Dim dblWastePerFullFrStrip As Byte = ui16LenLongSide - (bytFrPerStrip * ui16LenFr)
-            Dim dblWastePerFullBaStrip As Byte = ui16LenLongSide - (bytBaPerStrip * ui16LenBa)
-            Dim dblWastePerFullCrStrip As Byte = ui16LenLongSide - (bytCrPerStrip * ui16LenCr)
+            Dim ui32AreaRequired As UInt32 = ui32AreaFr * ui16RequiredFr + ui32AreaBa * ui16RequiredBa + ui32AreaCr * ui16RequiredCr
 
-            dblTotalWaste += bytFullStripsFr * dblWastePerFullFrStrip
-            dblTotalWaste += bytFullStripsBa * dblWastePerFullBaStrip
-            dblTotalWaste += bytFullStripsCr * dblWastePerFullCrStrip
+            Dim ui32AreaTotal As UInt32 = Convert.ToUInt32(dstrSrcLength.Millimetres) * dstrSrcWidth.Millimetres * SheetsUsed
 
-            Dim bytMissingFr As Byte = ui16RequiredFr - (bytFullStripsFr * bytFrPerStrip)
-            Dim bytUnusedRoomFr As Byte = bytFrPerStrip - bytMissingFr
-            dblTotalWaste += ui16LenFr * bytUnusedRoomFr
-            dblTotalWaste += dblWastePerFullFrStrip * (bytUnusedRoomFr > 0)
-
-            Dim bytMissingBa As Byte = ui16RequiredBa - (bytFullStripsBa * bytBaPerStrip)
-            Dim bytUnusedRoomBa As Byte = bytBaPerStrip - bytMissingBa
-            dblTotalWaste += ui16LenBa * bytUnusedRoomBa
-            dblTotalWaste += dblWastePerFullBaStrip * (bytUnusedRoomBa > 0)
-
-            Dim bytMissingCr As Byte = ui16RequiredCr - (bytFullStripsCr * bytCrPerStrip)
-            Dim bytUnusedRoomCr As Byte = bytCrPerStrip - bytMissingCr
-            dblTotalWaste += ui16LenFr * bytUnusedRoomCr
-            dblTotalWaste += dblWastePerFullCrStrip * (bytUnusedRoomCr > 0)
-
-            Return dblTotalWaste
+            Return ui32AreaTotal - ui32AreaRequired
         End Get
     End Property
 
