@@ -97,8 +97,4 @@
             dtbx.Font = New Font(Font.Name, bytFontSize - 4, unit:=GraphicsUnit.Pixel)
         Next
     End Sub
-
-    Private Sub SourceDimensionsChanged(sender As Object, e As EventArgs) Handles dtbxSrcWidth.LostFocus, dtbxSrcLength.LostFocus, dtbxLenFr.LostFocus, dtbxLenCr.LostFocus, dtbxLenBa.LostFocus, dtbxHeight.LostFocus, dtbxGapCr.LostFocus, dtbxCutWidth.LostFocus
-
-    End Sub
 End Class

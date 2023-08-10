@@ -28,5 +28,8 @@ Kitchen Kicker Calculator
 .
 </summary>
 </member>
+<member name="M:Kitchen_Kicker_Calculator.formMain.AddHandlers">
+ Handlers which cannot manually be added
+</member>
 </members>
 </doc>

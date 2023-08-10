@@ -1,20 +1,15 @@
 ﻿' DO YOURSELF A FAVOR, COLLAPSE ALL SUBS & FUNCTIONS NOW
 ' 
 ' NAMING CONVENTION:
-' TYPE              :   RULE                :   EXAMPLE
-' Private Variable  :   _typeNameHere       :   _ui16Millimetres
-' Regular Variable  :   typeNameHere        :   ui16Millimetres
-' Enum              :   EnumName            :   SaveResult
-' Function          :   FunctionName        :   MainFormLoad
-' Class Name        :   ClassName           :   Project
-' File Name         :   typeFileName        :   cntrlDistanceTextBox
-' Property          :   PropertyName        :   SpareFrontBoards
-'
-' Important Data Types
-' PREFIX    :   TYPE/PURPISE    :   DESCRIPTION
-' ui16      :   UInt16          :   An Unsigned 16 Bit Integer holding 0-65535
-' cntrl     :   Control File    :   A file holding a windows forms control
-' 
+' TYPE                  :   RULE                :   EXAMPLE
+' Private Variable      :   _typeNameHere       :   _ui16Millimetres
+' Regular Variable      :   typeNameHere        :   ui16Millimetres
+' Enum                  :   EnumName            :   SaveResult
+' Function/Subroutine   :   FunctionName        :   MainFormLoad
+' Class Name            :   ClassName           :   Project
+' File Name             :   typeFileName        :   cntrlDistanceTextBox
+' Method                :   MethodName          :   MethodName
+' Property              :   PropertyName        :   SpareFrontBoards
 
 Imports System.Drawing.Imaging
 
@@ -24,35 +19,6 @@ Public Enum SaveResult
 End Enum
 
 Public Class formMain
-    ' First load & project start
-    Private Sub MainFormLoad() Handles MyBase.Load ' Initial load
-        ' Create Default Project
-        prjActiveProject = New Project
-        NewKitchenElement()
-    End Sub
-
-    ' Add handlers
-    Private Sub AddHandlers() Handles MyBase.Shown
-        ' Add handlers of events in different forms
-        AddHandler formDiagramSettings.FormClosed, AddressOf UpdateOutputs
-        AddHandler formSourceSettings.btnSrcSave.Click, AddressOf UpdateOutputs
-
-        ' Add onclick handlers to labels
-        For Each cntrl As Control In tblElementOuts.Controls
-            If TypeOf cntrl Is Label Then
-                AddHandler cntrl.Click, AddressOf UnfocusElementOnClick
-            End If
-        Next
-        For Each cntrl As Control In tblProjectOuts.Controls
-            If TypeOf cntrl Is Label Then
-                AddHandler cntrl.Click, AddressOf UnfocusElementOnClick
-            End If
-        Next
-    End Sub
-    Private Sub UnfocusElementOnClick() Handles MyBase.Click, pnlEditor.Click, tblElementOuts.Click, tblProjectOuts.Click
-        ActiveControl = Nothing
-    End Sub
-
     ' UTILITY FUNCTIONS
     Private Sub UpdateOutputs()
         ' Element outputs
@@ -92,7 +58,41 @@ Public Class formMain
 
 
 
-    ' ELEMENT DROPDOWN AND BUTTONS
+
+
+    ' EVENT HANDLERS
+
+
+    '' First load & project start
+    Private Sub MainFormLoad() Handles MyBase.Load ' Initial load
+        ' Create Blank Project
+        prjActiveProject = New Project
+        NewKitchenElement()
+    End Sub
+    ''' Handlers which cannot manually be added
+    Private Sub AddHandlers() Handles MyBase.Shown
+        ' Add handlers of events in different forms
+        AddHandler formDiagramSettings.FormClosed, AddressOf UpdateOutputs
+        AddHandler formSourceSettings.btnSrcSave.Click, AddressOf UpdateOutputs
+
+        ' Add onclick handlers to labels
+        For Each cntrl As Control In tblElementOuts.Controls
+            If TypeOf cntrl Is Label Then
+                AddHandler cntrl.Click, AddressOf UnfocusElementOnClick
+            End If
+        Next
+        For Each cntrl As Control In tblProjectOuts.Controls
+            If TypeOf cntrl Is Label Then
+                AddHandler cntrl.Click, AddressOf UnfocusElementOnClick
+            End If
+        Next
+    End Sub
+    Private Sub UnfocusElementOnClick() Handles MyBase.Click, pnlEditor.Click, tblElementOuts.Click, tblProjectOuts.Click
+        ActiveControl = Nothing
+    End Sub
+
+
+    '' ELEMENT SELECTION (Dropdown, New & Delete)
     Private Sub NewKitchenElement() Handles btnNewElement.Click
         ' Create element
         keActiveElement = prjActiveProject.NewKitchenElement()
@@ -129,6 +129,13 @@ Public Class formMain
         ' Update values
         dtbxLinearMetres.Text = keActiveElement.LinearString
         UpdateOutputs()
+    End Sub
+    Private Sub RenameElement() Handles cmbxElement.LostFocus
+        cmbxElement.Items.Remove(keActiveElement.Name)
+        keActiveElement.Name = cmbxElement.Text
+        ' Add element to combobox
+        cmbxElement.Items.Add(keActiveElement.Name)
+        cmbxElement.SelectedItem = keActiveElement.Name
     End Sub
 
 
@@ -224,6 +231,7 @@ Public Class formMain
             Dim strElement = astrFileLines(ui16)
             Dim strElementProps = strElement.Split(",")
             NewKitchenElement()
+            keActiveElement.Name = strElementProps(0)
             keActiveElement.LinearMillimetres = Val(strElementProps(1))
             keActiveElement.SpareFrontBoards = Val(strElementProps(2))
             keActiveElement.SpareBackBoards = Val(strElementProps(3))
@@ -283,13 +291,5 @@ Public Class formMain
         End Select
 
         pbxDiagramBox.Image.Save(sdImageSaveDialog.FileName, ifImageFormat)
-    End Sub
-
-    Private Sub LinearMetresChanged(sender As Object, e As EventArgs) Handles dtbxLinearMetres.LostFocus
-
-    End Sub
-
-    Private Sub ExtraTextChanged(sender As Object, e As EventArgs) Handles etbxExtraFr.LostFocus, etbxExtraCr.LostFocus, etbxExtraBa.LostFocus
-
     End Sub
 End Class

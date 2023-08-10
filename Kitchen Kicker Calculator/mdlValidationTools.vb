@@ -44,25 +44,29 @@ Module mdlValidationTools
         Return True
     End Function
 
+    Private Sub InvalidSrcLengthWarning(strLength As String)
+        Warning("To make this change the source sheet must have one side length of at least " & strLength)
+    End Sub
+
     Public Function IsValidSrcLengths(dstrSide1, dstrSide2) As Boolean
         Dim ui16Longest As UInt16 = Math.Max(dstrSide1.Millimetres, dstrSide2.Millimetres)
         Dim ui16Shortest As UInt16 = Math.Min(dstrSide1.Millimetres, dstrSide2.Millimetres)
 
         ' Ensure that the longest side is long enough for components
-        If dstrLenFr.Millimetres > ui16Longest Then
-            Warning("Source Material must have a side of at least length " & dstrLenFr.Text)
+        If dstrLenFr.Millimetres + dstrCutWidth.Millimetres > ui16Longest Then
+            InvalidSrcLengthWarning(dstrLenFr.Text)
             Return False
-        ElseIf dstrLenBa.Millimetres > ui16Longest Then
-            Warning("Source Material must have a side of at least length " & dstrLenBa.Text)
+        ElseIf dstrLenBa.Millimetres + dstrCutWidth.Millimetres > ui16Longest Then
+            InvalidSrcLengthWarning(dstrLenBa.Text)
             Return False
-        ElseIf dstrLenCr.Millimetres > ui16Longest Then
-            Warning("Source Material must have a side of at least length " & dstrLenCr.Text)
+        ElseIf dstrLenCr.Millimetres + dstrCutWidth.Millimetres > ui16Longest Then
+            InvalidSrcLengthWarning(dstrLenCr.Text)
             Return False
         End If
 
         ' Ensure short side is long enough for kitchen length
         If dstrHeight.Millimetres > ui16Longest Then
-            Warning("Source Material must have a side of at least length " & dstrLenCr.Text)
+            Warning("To make this change the source sheet's shortest side must be larger than " & dstrLenCr.Text)
             Return False
         End If
 

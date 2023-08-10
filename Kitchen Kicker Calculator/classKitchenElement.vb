@@ -1,6 +1,5 @@
 ﻿Public Class KitchenElement
     ' VARIABLES
-    Dim _strName As String
     ReadOnly _prjProject As Project
     ReadOnly _dstrLinearMetres As New DistanceString
     Dim _bytExtraFr As Byte = 0
@@ -9,11 +8,7 @@
 
     ' PROPERTIES
     '' Basic properties
-    Public ReadOnly Property Name As String
-        Get
-            Return _strName
-        End Get
-    End Property
+    Public Property Name As String
 
     Public ReadOnly Property Project As Project
         Get
@@ -74,7 +69,7 @@
 
     ' METHODS
     Public Sub New(strName As String, prjProject As Project)
-        _strName = strName
+        Name = strName
         _prjProject = prjProject
     End Sub
 

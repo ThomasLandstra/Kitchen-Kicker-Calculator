@@ -39,6 +39,7 @@ Partial Class formMain
         Me.mniFile = New System.Windows.Forms.ToolStripMenuItem()
         Me.mstrpMainForm = New System.Windows.Forms.MenuStrip()
         Me.pnlEditor = New System.Windows.Forms.Panel()
+        Me.btnHelp = New System.Windows.Forms.Button()
         Me.btnSaveDiagram = New System.Windows.Forms.Button()
         Me.pbxDiagramBox = New System.Windows.Forms.PictureBox()
         Me.Label26 = New System.Windows.Forms.Label()
@@ -83,7 +84,6 @@ Partial Class formMain
         Me.sdSaveDialog = New System.Windows.Forms.SaveFileDialog()
         Me.sdImageSaveDialog = New System.Windows.Forms.SaveFileDialog()
         Me.odOpenDialog = New System.Windows.Forms.OpenFileDialog()
-        Me.btnHelp = New System.Windows.Forms.Button()
         Me.ctxmDiagram.SuspendLayout()
         Me.ctxmFile.SuspendLayout()
         Me.mstrpMainForm.SuspendLayout()
@@ -122,19 +122,20 @@ Partial Class formMain
         Me.ctxmDiagram.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ctxmDiagram.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.smiDiagramPreferences, Me.smiSourcePreferences})
         Me.ctxmDiagram.Name = "ctxmDiagram"
+        Me.ctxmDiagram.OwnerItem = Me.mniDiagram
         Me.ctxmDiagram.ShowImageMargin = False
-        Me.ctxmDiagram.Size = New System.Drawing.Size(196, 48)
+        Me.ctxmDiagram.Size = New System.Drawing.Size(238, 52)
         '
         'smiDiagramPreferences
         '
         Me.smiDiagramPreferences.Name = "smiDiagramPreferences"
-        Me.smiDiagramPreferences.Size = New System.Drawing.Size(195, 22)
+        Me.smiDiagramPreferences.Size = New System.Drawing.Size(237, 24)
         Me.smiDiagramPreferences.Text = "Diagram Preferences"
         '
         'smiSourcePreferences
         '
         Me.smiSourcePreferences.Name = "smiSourcePreferences"
-        Me.smiSourcePreferences.Size = New System.Drawing.Size(195, 22)
+        Me.smiSourcePreferences.Size = New System.Drawing.Size(237, 24)
         Me.smiSourcePreferences.Text = "Source Material Preferences"
         '
         'mniDiagram
@@ -142,7 +143,7 @@ Partial Class formMain
         Me.mniDiagram.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.mniDiagram.DropDown = Me.ctxmDiagram
         Me.mniDiagram.Name = "mniDiagram"
-        Me.mniDiagram.Size = New System.Drawing.Size(91, 23)
+        Me.mniDiagram.Size = New System.Drawing.Size(112, 27)
         Me.mniDiagram.Text = "Preferences"
         '
         'ctxmFile
@@ -152,37 +153,37 @@ Partial Class formMain
         Me.ctxmFile.Name = "ctxmMainFile"
         Me.ctxmFile.OwnerItem = Me.mniFile
         Me.ctxmFile.ShowImageMargin = False
-        Me.ctxmFile.Size = New System.Drawing.Size(90, 92)
+        Me.ctxmFile.Size = New System.Drawing.Size(105, 100)
         '
         'smiNew
         '
         Me.smiNew.Name = "smiNew"
-        Me.smiNew.Size = New System.Drawing.Size(89, 22)
+        Me.smiNew.Size = New System.Drawing.Size(104, 24)
         Me.smiNew.Text = "New"
         '
         'smiOpen
         '
         Me.smiOpen.Name = "smiOpen"
-        Me.smiOpen.Size = New System.Drawing.Size(89, 22)
+        Me.smiOpen.Size = New System.Drawing.Size(104, 24)
         Me.smiOpen.Text = "Open"
         '
         'smiSave
         '
         Me.smiSave.Name = "smiSave"
-        Me.smiSave.Size = New System.Drawing.Size(89, 22)
+        Me.smiSave.Size = New System.Drawing.Size(104, 24)
         Me.smiSave.Text = "Save"
         '
         'smiSaveAs
         '
         Me.smiSaveAs.Name = "smiSaveAs"
-        Me.smiSaveAs.Size = New System.Drawing.Size(89, 22)
+        Me.smiSaveAs.Size = New System.Drawing.Size(104, 24)
         Me.smiSaveAs.Text = "Save As"
         '
         'mniFile
         '
         Me.mniFile.DropDown = Me.ctxmFile
         Me.mniFile.Name = "mniFile"
-        Me.mniFile.Size = New System.Drawing.Size(41, 23)
+        Me.mniFile.Size = New System.Drawing.Size(49, 27)
         Me.mniFile.Text = "File"
         '
         'mstrpMainForm
@@ -194,7 +195,7 @@ Partial Class formMain
         Me.mstrpMainForm.Location = New System.Drawing.Point(0, 0)
         Me.mstrpMainForm.Name = "mstrpMainForm"
         Me.mstrpMainForm.Padding = New System.Windows.Forms.Padding(10, 2, 0, 2)
-        Me.mstrpMainForm.Size = New System.Drawing.Size(982, 27)
+        Me.mstrpMainForm.Size = New System.Drawing.Size(982, 31)
         Me.mstrpMainForm.TabIndex = 1
         '
         'pnlEditor
@@ -218,6 +219,16 @@ Partial Class formMain
         Me.pnlEditor.Name = "pnlEditor"
         Me.pnlEditor.Size = New System.Drawing.Size(960, 457)
         Me.pnlEditor.TabIndex = 32
+        '
+        'btnHelp
+        '
+        Me.btnHelp.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnHelp.Location = New System.Drawing.Point(903, 5)
+        Me.btnHelp.Name = "btnHelp"
+        Me.btnHelp.Size = New System.Drawing.Size(27, 25)
+        Me.btnHelp.TabIndex = 45
+        Me.btnHelp.Text = "?"
+        Me.btnHelp.UseVisualStyleBackColor = True
         '
         'btnSaveDiagram
         '
@@ -254,7 +265,7 @@ Partial Class formMain
         Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label26.Location = New System.Drawing.Point(749, 194)
         Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(136, 25)
+        Me.Label26.Size = New System.Drawing.Size(174, 29)
         Me.Label26.TabIndex = 42
         Me.Label26.Text = "Project Output"
         '
@@ -301,10 +312,10 @@ Partial Class formMain
         Me.Label7.AutoSize = True
         Me.Label7.BackColor = System.Drawing.Color.Transparent
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(180, 4)
+        Me.Label7.Location = New System.Drawing.Point(219, 4)
         Me.Label7.Margin = New System.Windows.Forms.Padding(4)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(60, 20)
+        Me.Label7.Size = New System.Drawing.Size(75, 22)
         Me.Label7.TabIndex = 46
         Me.Label7.Text = "Spares"
         '
@@ -313,10 +324,10 @@ Partial Class formMain
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.Transparent
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(138, 4)
+        Me.Label6.Location = New System.Drawing.Point(167, 4)
         Me.Label6.Margin = New System.Windows.Forms.Padding(4)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(34, 20)
+        Me.Label6.Size = New System.Drawing.Size(44, 22)
         Me.Label6.TabIndex = 45
         Me.Label6.Text = "Min"
         '
@@ -328,7 +339,7 @@ Partial Class formMain
         Me.Label5.Location = New System.Drawing.Point(4, 4)
         Me.Label5.Margin = New System.Windows.Forms.Padding(4)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(41, 20)
+        Me.Label5.Size = New System.Drawing.Size(49, 22)
         Me.Label5.TabIndex = 44
         Me.Label5.Text = "Item"
         '
@@ -339,7 +350,7 @@ Partial Class formMain
         Me.Label17.Location = New System.Drawing.Point(4, 184)
         Me.Label17.Margin = New System.Windows.Forms.Padding(4)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(88, 20)
+        Me.Label17.Size = New System.Drawing.Size(108, 23)
         Me.Label17.TabIndex = 20
         Me.Label17.Text = "Waste m^2"
         '
@@ -347,10 +358,10 @@ Partial Class formMain
         '
         Me.lblWaste.AutoSize = True
         Me.lblWaste.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblWaste.Location = New System.Drawing.Point(180, 184)
+        Me.lblWaste.Location = New System.Drawing.Point(219, 184)
         Me.lblWaste.Margin = New System.Windows.Forms.Padding(4, 4, 0, 4)
         Me.lblWaste.Name = "lblWaste"
-        Me.lblWaste.Size = New System.Drawing.Size(19, 20)
+        Me.lblWaste.Size = New System.Drawing.Size(26, 23)
         Me.lblWaste.TabIndex = 33
         Me.lblWaste.Text = "--"
         Me.lblWaste.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -359,10 +370,10 @@ Partial Class formMain
         '
         Me.lblCutsToBeMade.AutoSize = True
         Me.lblCutsToBeMade.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCutsToBeMade.Location = New System.Drawing.Point(180, 154)
+        Me.lblCutsToBeMade.Location = New System.Drawing.Point(219, 154)
         Me.lblCutsToBeMade.Margin = New System.Windows.Forms.Padding(4, 4, 0, 4)
         Me.lblCutsToBeMade.Name = "lblCutsToBeMade"
-        Me.lblCutsToBeMade.Size = New System.Drawing.Size(19, 20)
+        Me.lblCutsToBeMade.Size = New System.Drawing.Size(26, 22)
         Me.lblCutsToBeMade.TabIndex = 34
         Me.lblCutsToBeMade.Text = "--"
         Me.lblCutsToBeMade.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -371,10 +382,10 @@ Partial Class formMain
         '
         Me.lblSheetsUsed.AutoSize = True
         Me.lblSheetsUsed.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSheetsUsed.Location = New System.Drawing.Point(180, 124)
+        Me.lblSheetsUsed.Location = New System.Drawing.Point(219, 124)
         Me.lblSheetsUsed.Margin = New System.Windows.Forms.Padding(4, 4, 0, 4)
         Me.lblSheetsUsed.Name = "lblSheetsUsed"
-        Me.lblSheetsUsed.Size = New System.Drawing.Size(19, 20)
+        Me.lblSheetsUsed.Size = New System.Drawing.Size(26, 22)
         Me.lblSheetsUsed.TabIndex = 35
         Me.lblSheetsUsed.Text = "--"
         Me.lblSheetsUsed.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -383,10 +394,10 @@ Partial Class formMain
         '
         Me.lblPrjExtraCr.AutoSize = True
         Me.lblPrjExtraCr.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPrjExtraCr.Location = New System.Drawing.Point(180, 94)
+        Me.lblPrjExtraCr.Location = New System.Drawing.Point(219, 94)
         Me.lblPrjExtraCr.Margin = New System.Windows.Forms.Padding(4, 4, 0, 4)
         Me.lblPrjExtraCr.Name = "lblPrjExtraCr"
-        Me.lblPrjExtraCr.Size = New System.Drawing.Size(19, 20)
+        Me.lblPrjExtraCr.Size = New System.Drawing.Size(26, 22)
         Me.lblPrjExtraCr.TabIndex = 37
         Me.lblPrjExtraCr.Text = "--"
         Me.lblPrjExtraCr.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -395,10 +406,10 @@ Partial Class formMain
         '
         Me.lblPrjExtraBa.AutoSize = True
         Me.lblPrjExtraBa.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPrjExtraBa.Location = New System.Drawing.Point(180, 64)
+        Me.lblPrjExtraBa.Location = New System.Drawing.Point(219, 64)
         Me.lblPrjExtraBa.Margin = New System.Windows.Forms.Padding(4, 4, 0, 4)
         Me.lblPrjExtraBa.Name = "lblPrjExtraBa"
-        Me.lblPrjExtraBa.Size = New System.Drawing.Size(19, 20)
+        Me.lblPrjExtraBa.Size = New System.Drawing.Size(26, 22)
         Me.lblPrjExtraBa.TabIndex = 36
         Me.lblPrjExtraBa.Text = "--"
         Me.lblPrjExtraBa.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -407,10 +418,10 @@ Partial Class formMain
         '
         Me.lblPrjExtraFr.AutoSize = True
         Me.lblPrjExtraFr.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPrjExtraFr.Location = New System.Drawing.Point(180, 34)
+        Me.lblPrjExtraFr.Location = New System.Drawing.Point(219, 34)
         Me.lblPrjExtraFr.Margin = New System.Windows.Forms.Padding(4, 4, 0, 4)
         Me.lblPrjExtraFr.Name = "lblPrjExtraFr"
-        Me.lblPrjExtraFr.Size = New System.Drawing.Size(19, 20)
+        Me.lblPrjExtraFr.Size = New System.Drawing.Size(26, 22)
         Me.lblPrjExtraFr.TabIndex = 28
         Me.lblPrjExtraFr.Text = "--"
         Me.lblPrjExtraFr.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -422,7 +433,7 @@ Partial Class formMain
         Me.Label14.Location = New System.Drawing.Point(4, 154)
         Me.Label14.Margin = New System.Windows.Forms.Padding(4)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(126, 20)
+        Me.Label14.Size = New System.Drawing.Size(155, 22)
         Me.Label14.TabIndex = 31
         Me.Label14.Text = "Cuts to be made"
         '
@@ -433,7 +444,7 @@ Partial Class formMain
         Me.Label15.Location = New System.Drawing.Point(4, 124)
         Me.Label15.Margin = New System.Windows.Forms.Padding(4)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(102, 20)
+        Me.Label15.Size = New System.Drawing.Size(125, 22)
         Me.Label15.TabIndex = 29
         Me.Label15.Text = "Sheets Used"
         '
@@ -444,7 +455,7 @@ Partial Class formMain
         Me.Label20.Location = New System.Drawing.Point(4, 94)
         Me.Label20.Margin = New System.Windows.Forms.Padding(4)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(104, 20)
+        Me.Label20.Size = New System.Drawing.Size(130, 22)
         Me.Label20.TabIndex = 17
         Me.Label20.Text = "Cross Braces"
         '
@@ -455,7 +466,7 @@ Partial Class formMain
         Me.Label19.Location = New System.Drawing.Point(4, 64)
         Me.Label19.Margin = New System.Windows.Forms.Padding(4)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(100, 20)
+        Me.Label19.Size = New System.Drawing.Size(123, 22)
         Me.Label19.TabIndex = 14
         Me.Label19.Text = "Back Boards"
         '
@@ -467,7 +478,7 @@ Partial Class formMain
         Me.Label18.Location = New System.Drawing.Point(4, 34)
         Me.Label18.Margin = New System.Windows.Forms.Padding(4)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(102, 20)
+        Me.Label18.Size = New System.Drawing.Size(124, 22)
         Me.Label18.TabIndex = 9
         Me.Label18.Text = "Front Boards"
         '
@@ -475,10 +486,10 @@ Partial Class formMain
         '
         Me.lblPrjOutCr.AutoSize = True
         Me.lblPrjOutCr.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPrjOutCr.Location = New System.Drawing.Point(138, 94)
+        Me.lblPrjOutCr.Location = New System.Drawing.Point(167, 94)
         Me.lblPrjOutCr.Margin = New System.Windows.Forms.Padding(4, 4, 0, 4)
         Me.lblPrjOutCr.Name = "lblPrjOutCr"
-        Me.lblPrjOutCr.Size = New System.Drawing.Size(19, 20)
+        Me.lblPrjOutCr.Size = New System.Drawing.Size(26, 22)
         Me.lblPrjOutCr.TabIndex = 18
         Me.lblPrjOutCr.Text = "--"
         Me.lblPrjOutCr.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -487,10 +498,10 @@ Partial Class formMain
         '
         Me.lblPrjOutBa.AutoSize = True
         Me.lblPrjOutBa.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPrjOutBa.Location = New System.Drawing.Point(138, 64)
+        Me.lblPrjOutBa.Location = New System.Drawing.Point(167, 64)
         Me.lblPrjOutBa.Margin = New System.Windows.Forms.Padding(4, 4, 0, 4)
         Me.lblPrjOutBa.Name = "lblPrjOutBa"
-        Me.lblPrjOutBa.Size = New System.Drawing.Size(19, 20)
+        Me.lblPrjOutBa.Size = New System.Drawing.Size(26, 22)
         Me.lblPrjOutBa.TabIndex = 15
         Me.lblPrjOutBa.Text = "--"
         Me.lblPrjOutBa.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -499,10 +510,10 @@ Partial Class formMain
         '
         Me.lblPrjOutFr.AutoSize = True
         Me.lblPrjOutFr.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPrjOutFr.Location = New System.Drawing.Point(138, 34)
+        Me.lblPrjOutFr.Location = New System.Drawing.Point(167, 34)
         Me.lblPrjOutFr.Margin = New System.Windows.Forms.Padding(4, 4, 0, 4)
         Me.lblPrjOutFr.Name = "lblPrjOutFr"
-        Me.lblPrjOutFr.Size = New System.Drawing.Size(19, 20)
+        Me.lblPrjOutFr.Size = New System.Drawing.Size(26, 22)
         Me.lblPrjOutFr.TabIndex = 12
         Me.lblPrjOutFr.Text = "--"
         Me.lblPrjOutFr.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -514,7 +525,7 @@ Partial Class formMain
         Me.dtbxLinearMetres.MaxLength = 15
         Me.dtbxLinearMetres.Millimetres = CType(0US, UShort)
         Me.dtbxLinearMetres.Name = "dtbxLinearMetres"
-        Me.dtbxLinearMetres.Size = New System.Drawing.Size(133, 26)
+        Me.dtbxLinearMetres.Size = New System.Drawing.Size(133, 31)
         Me.dtbxLinearMetres.TabIndex = 40
         Me.dtbxLinearMetres.Text = " 0 m"
         Me.dtbxLinearMetres.Unit = "m"
@@ -556,10 +567,10 @@ Partial Class formMain
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(158, 4)
+        Me.Label4.Location = New System.Drawing.Point(194, 4)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(60, 20)
+        Me.Label4.Size = New System.Drawing.Size(75, 22)
         Me.Label4.TabIndex = 45
         Me.Label4.Text = "Spares"
         '
@@ -568,10 +579,10 @@ Partial Class formMain
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(116, 4)
+        Me.Label3.Location = New System.Drawing.Point(142, 4)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(34, 20)
+        Me.Label3.Size = New System.Drawing.Size(44, 22)
         Me.Label3.TabIndex = 44
         Me.Label3.Text = "Min"
         '
@@ -582,7 +593,7 @@ Partial Class formMain
         Me.lblCrossBraces.Location = New System.Drawing.Point(4, 94)
         Me.lblCrossBraces.Margin = New System.Windows.Forms.Padding(4)
         Me.lblCrossBraces.Name = "lblCrossBraces"
-        Me.lblCrossBraces.Size = New System.Drawing.Size(104, 20)
+        Me.lblCrossBraces.Size = New System.Drawing.Size(130, 25)
         Me.lblCrossBraces.TabIndex = 17
         Me.lblCrossBraces.Text = "Cross Braces"
         '
@@ -590,10 +601,10 @@ Partial Class formMain
         '
         Me.lblElOutCr.AutoSize = True
         Me.lblElOutCr.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblElOutCr.Location = New System.Drawing.Point(116, 94)
+        Me.lblElOutCr.Location = New System.Drawing.Point(142, 94)
         Me.lblElOutCr.Margin = New System.Windows.Forms.Padding(4, 4, 0, 4)
         Me.lblElOutCr.Name = "lblElOutCr"
-        Me.lblElOutCr.Size = New System.Drawing.Size(19, 20)
+        Me.lblElOutCr.Size = New System.Drawing.Size(26, 25)
         Me.lblElOutCr.TabIndex = 18
         Me.lblElOutCr.Text = "--"
         Me.lblElOutCr.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -601,29 +612,29 @@ Partial Class formMain
         'etbxExtraCr
         '
         Me.etbxExtraCr.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.etbxExtraCr.Location = New System.Drawing.Point(157, 93)
+        Me.etbxExtraCr.Location = New System.Drawing.Point(193, 93)
         Me.etbxExtraCr.MaxLength = 2
         Me.etbxExtraCr.Name = "etbxExtraCr"
-        Me.etbxExtraCr.Size = New System.Drawing.Size(50, 25)
+        Me.etbxExtraCr.Size = New System.Drawing.Size(50, 29)
         Me.etbxExtraCr.TabIndex = 38
         '
         'etbxExtraBa
         '
         Me.etbxExtraBa.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.etbxExtraBa.Location = New System.Drawing.Point(157, 63)
+        Me.etbxExtraBa.Location = New System.Drawing.Point(193, 63)
         Me.etbxExtraBa.MaxLength = 2
         Me.etbxExtraBa.Name = "etbxExtraBa"
-        Me.etbxExtraBa.Size = New System.Drawing.Size(50, 25)
+        Me.etbxExtraBa.Size = New System.Drawing.Size(50, 29)
         Me.etbxExtraBa.TabIndex = 37
         '
         'lblElOutBa
         '
         Me.lblElOutBa.AutoSize = True
         Me.lblElOutBa.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblElOutBa.Location = New System.Drawing.Point(116, 64)
+        Me.lblElOutBa.Location = New System.Drawing.Point(142, 64)
         Me.lblElOutBa.Margin = New System.Windows.Forms.Padding(4, 4, 0, 4)
         Me.lblElOutBa.Name = "lblElOutBa"
-        Me.lblElOutBa.Size = New System.Drawing.Size(19, 20)
+        Me.lblElOutBa.Size = New System.Drawing.Size(26, 22)
         Me.lblElOutBa.TabIndex = 15
         Me.lblElOutBa.Text = "--"
         Me.lblElOutBa.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -635,7 +646,7 @@ Partial Class formMain
         Me.lblBackBoards.Location = New System.Drawing.Point(4, 64)
         Me.lblBackBoards.Margin = New System.Windows.Forms.Padding(4)
         Me.lblBackBoards.Name = "lblBackBoards"
-        Me.lblBackBoards.Size = New System.Drawing.Size(100, 20)
+        Me.lblBackBoards.Size = New System.Drawing.Size(123, 22)
         Me.lblBackBoards.TabIndex = 14
         Me.lblBackBoards.Text = "Back Boards"
         '
@@ -647,7 +658,7 @@ Partial Class formMain
         Me.lblFrontBoards.Location = New System.Drawing.Point(4, 34)
         Me.lblFrontBoards.Margin = New System.Windows.Forms.Padding(4)
         Me.lblFrontBoards.Name = "lblFrontBoards"
-        Me.lblFrontBoards.Size = New System.Drawing.Size(102, 20)
+        Me.lblFrontBoards.Size = New System.Drawing.Size(124, 22)
         Me.lblFrontBoards.TabIndex = 9
         Me.lblFrontBoards.Text = "Front Boards"
         '
@@ -655,10 +666,10 @@ Partial Class formMain
         '
         Me.lblElOutFr.AutoSize = True
         Me.lblElOutFr.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblElOutFr.Location = New System.Drawing.Point(116, 34)
+        Me.lblElOutFr.Location = New System.Drawing.Point(142, 34)
         Me.lblElOutFr.Margin = New System.Windows.Forms.Padding(4, 4, 0, 4)
         Me.lblElOutFr.Name = "lblElOutFr"
-        Me.lblElOutFr.Size = New System.Drawing.Size(19, 20)
+        Me.lblElOutFr.Size = New System.Drawing.Size(26, 22)
         Me.lblElOutFr.TabIndex = 12
         Me.lblElOutFr.Text = "--"
         Me.lblElOutFr.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -666,10 +677,10 @@ Partial Class formMain
         'etbxExtraFr
         '
         Me.etbxExtraFr.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.etbxExtraFr.Location = New System.Drawing.Point(157, 33)
+        Me.etbxExtraFr.Location = New System.Drawing.Point(193, 33)
         Me.etbxExtraFr.MaxLength = 2
         Me.etbxExtraFr.Name = "etbxExtraFr"
-        Me.etbxExtraFr.Size = New System.Drawing.Size(50, 25)
+        Me.etbxExtraFr.Size = New System.Drawing.Size(50, 29)
         Me.etbxExtraFr.TabIndex = 36
         '
         'Label2
@@ -680,7 +691,7 @@ Partial Class formMain
         Me.Label2.Location = New System.Drawing.Point(4, 4)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(41, 20)
+        Me.Label2.Size = New System.Drawing.Size(49, 22)
         Me.Label2.TabIndex = 43
         Me.Label2.Text = "Item"
         '
@@ -691,7 +702,7 @@ Partial Class formMain
         Me.lblOutput.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblOutput.Location = New System.Drawing.Point(749, 5)
         Me.lblOutput.Name = "lblOutput"
-        Me.lblOutput.Size = New System.Drawing.Size(147, 25)
+        Me.lblOutput.Size = New System.Drawing.Size(189, 29)
         Me.lblOutput.TabIndex = 8
         Me.lblOutput.Text = "Element Output"
         '
@@ -701,7 +712,7 @@ Partial Class formMain
         Me.lblLinealMeters.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblLinealMeters.Location = New System.Drawing.Point(3, 50)
         Me.lblLinealMeters.Name = "lblLinealMeters"
-        Me.lblLinealMeters.Size = New System.Drawing.Size(119, 22)
+        Me.lblLinealMeters.Size = New System.Drawing.Size(144, 26)
         Me.lblLinealMeters.TabIndex = 6
         Me.lblLinealMeters.Text = "Linear Metres"
         '
@@ -733,13 +744,12 @@ Partial Class formMain
         '
         Me.cmbxElement.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmbxElement.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbxElement.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbxElement.FormattingEnabled = True
         Me.cmbxElement.Location = New System.Drawing.Point(4, 4)
         Me.cmbxElement.Margin = New System.Windows.Forms.Padding(0)
         Me.cmbxElement.Name = "cmbxElement"
-        Me.cmbxElement.Size = New System.Drawing.Size(254, 28)
+        Me.cmbxElement.Size = New System.Drawing.Size(254, 33)
         Me.cmbxElement.TabIndex = 0
         '
         'sdSaveDialog
@@ -757,19 +767,9 @@ Partial Class formMain
         Me.odOpenDialog.DefaultExt = "csv"
         Me.odOpenDialog.Filter = "CSV Files|*.csv"
         '
-        'btnHelp
-        '
-        Me.btnHelp.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnHelp.Location = New System.Drawing.Point(903, 5)
-        Me.btnHelp.Name = "btnHelp"
-        Me.btnHelp.Size = New System.Drawing.Size(27, 25)
-        Me.btnHelp.TabIndex = 45
-        Me.btnHelp.Text = "?"
-        Me.btnHelp.UseVisualStyleBackColor = True
-        '
         'formMain
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(982, 503)
         Me.Controls.Add(Me.mstrpMainForm)

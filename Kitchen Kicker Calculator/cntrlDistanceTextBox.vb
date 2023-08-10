@@ -42,4 +42,5 @@
         _dstrDistance.Text = Text
         Text = _dstrDistance.Text
     End Sub
+
 End Class

@@ -1,10 +1,10 @@
 ﻿Public Class EscapableTextBox
     Inherits System.Windows.Forms.TextBox
 
-    Private Sub TbxKeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+    Private Sub TbxKeyDown(sender As EscapableTextBox, e As KeyEventArgs) Handles Me.KeyDown
         ' esc & enter will break focus
         If {Keys.Escape, Keys.Enter}.Contains(e.KeyCode) Then
-            FindForm().ActiveControl = Nothing
+            sender.FindForm().ActiveControl = Nothing
         End If
     End Sub
 
