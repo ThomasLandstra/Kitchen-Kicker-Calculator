@@ -42,9 +42,9 @@
             Dim strElement As String = ""
             strElement &= ke.Name & ","
             strElement &= Str(ke.LinearMillimetres) & ","
-            strElement &= Str(ke.ExtraFrontBoards) & ","
-            strElement &= Str(ke.ExtraBackBoards) & ","
-            strElement &= Str(ke.ExtraCrossBraces)
+            strElement &= Str(ke.SpareFrontBoards) & ","
+            strElement &= Str(ke.SpareBackBoards) & ","
+            strElement &= Str(ke.SpareCrossBraces)
             strSaveString = strSaveString & vbLf & strElement
         Next
 

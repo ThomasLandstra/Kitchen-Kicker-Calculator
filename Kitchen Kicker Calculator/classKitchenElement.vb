@@ -68,32 +68,9 @@
     End Property
 
     '' Extra Component Properties
-    Public Property ExtraFrontBoards As Byte
-        Get
-            Return _bytExtraFr
-        End Get
-        Set(bytExtraFr As Byte)
-            _bytExtraFr = bytExtraFr
-        End Set
-    End Property
-
-    Public Property ExtraBackBoards As Byte
-        Get
-            Return _bytExtraBa
-        End Get
-        Set(bytExtraBa As Byte)
-            _bytExtraBa = bytExtraBa
-        End Set
-    End Property
-
-    Public Property ExtraCrossBraces As Byte
-        Get
-            Return _bytExtraCr
-        End Get
-        Set(bytExtraCr As Byte)
-            _bytExtraCr = bytExtraCr
-        End Set
-    End Property
+    Public SpareFrontBoards As Byte = 0
+    Public SpareBackBoards As Byte = 0
+    Public SpareCrossBraces As Byte = 0
 
     ' METHODS
     Public Sub New(strName As String, prjProject As Project)

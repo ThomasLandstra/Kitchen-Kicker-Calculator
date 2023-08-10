@@ -11,4 +11,5 @@ C:\Users\thoma\Documents\Development\- Visual Basic\Kitchen Kicker Calculator\Ki
 C:\Users\thoma\Documents\Development\- Visual Basic\Kitchen Kicker Calculator\Kitchen Kicker Calculator\obj\Debug\Kitchen Kicker Calculator.exe
 C:\Users\thoma\Documents\Development\- Visual Basic\Kitchen Kicker Calculator\Kitchen Kicker Calculator\obj\Debug\Kitchen Kicker Calculator.xml
 C:\Users\thoma\Documents\Development\- Visual Basic\Kitchen Kicker Calculator\Kitchen Kicker Calculator\obj\Debug\Kitchen Kicker Calculator.pdb
-C:\Users\thoma\Documents\Development\- Visual Basic\Kitchen Kicker Calculator\Kitchen Kicker Calculator\obj\Debug\Kitchen_Kicker_Calculator.formSettings.resources
+C:\Users\thoma\Documents\Development\- Visual Basic\Kitchen Kicker Calculator\Kitchen Kicker Calculator\obj\Debug\Kitchen_Kicker_Calculator.formDiagramSettings.resources
+C:\Users\thoma\Documents\Development\- Visual Basic\Kitchen Kicker Calculator\Kitchen Kicker Calculator\obj\Debug\Kitchen_Kicker_Calculator.formSourceSettings.resources

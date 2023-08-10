@@ -1,5 +1,23 @@
 ﻿' DO YOURSELF A FAVOR, COLLAPSE ALL SUBS & FUNCTIONS NOW
+' 
+' NAMING CONVENTION:
+' TYPE              :   RULE                :   EXAMPLE
+' Private Variable  :   _typeNameHere       :   _ui16Millimetres
+' Regular Variable  :   typeNameHere        :   ui16Millimetres
+' Enum              :   EnumName            :   SaveResult
+' Function          :   FunctionName        :   MainFormLoad
+' Class Name        :   ClassName           :   Project
+' File Name         :   typeFileName        :   cntrlDistanceTextBox
+' Property          :   PropertyName        :   SpareFrontBoards
+'
+' Important Data Types
+' PREFIX    :   TYPE/PURPISE    :   DESCRIPTION
+' ui16      :   UInt16          :   An Unsigned 16 Bit Integer holding 0-65535
+' cntrl     :   Control File    :   A file holding a windows forms control
+' 
+
 Imports System.Drawing.Imaging
+
 Public Enum SaveResult
     Success
     InvalidPath
@@ -11,20 +29,13 @@ Public Class formMain
         ' Create Default Project
         prjActiveProject = New Project
         NewKitchenElement()
-        dtbxSrcLength.Text = dstrSrcLength.Text
-        dtbxSrcWidth.Text = dstrSrcWidth.Text
-        dtbxLenBa.Text = dstrLenBa.Text
-        dtbxLenFr.Text = dstrLenFr.Text
-        dtbxLenCr.Text = dstrLenCr.Text
-        dtbxCutWidth.Text = dstrCutWidth.Text
-        dtbxHeight.Text = dstrHeight.Text
-        dtbxGapCr.Text = dstrGapCr.Text
     End Sub
 
     ' Add handlers
     Private Sub AddHandlers() Handles MyBase.Shown
-        ' Settings form close causes diagram refresh
-        AddHandler formSettings.FormClosed, AddressOf ToDiagramPageClick
+        ' Add handlers of events in different forms
+        AddHandler formDiagramSettings.FormClosed, AddressOf UpdateOutputs
+        AddHandler formSourceSettings.btnSrcSave.Click, AddressOf UpdateOutputs
 
         ' Add onclick handlers to labels
         For Each cntrl As Control In tblElementOuts.Controls
@@ -37,13 +48,8 @@ Public Class formMain
                 AddHandler cntrl.Click, AddressOf UnfocusElementOnClick
             End If
         Next
-        For Each cntrl As Control In tblSrcMaterials.Controls
-            If TypeOf cntrl Is Label Then
-                AddHandler cntrl.Click, AddressOf UnfocusElementOnClick
-            End If
-        Next
     End Sub
-    Private Sub UnfocusElementOnClick() Handles MyBase.Click, pnlDiagram.Click, pnlEditor.Click, pnlSpacer.Click, tblElementOuts.Click, tblProjectOuts.Click, tblSrcMaterials.Click
+    Private Sub UnfocusElementOnClick() Handles MyBase.Click, pnlEditor.Click, tblElementOuts.Click, tblProjectOuts.Click
         ActiveControl = Nothing
     End Sub
 
@@ -53,9 +59,12 @@ Public Class formMain
         lblElOutBa.Text = keActiveElement.BackBoards
         lblElOutFr.Text = keActiveElement.FrontBoards
         lblElOutCr.Text = keActiveElement.CrossBraces
-        etbxExtraBa.Text = keActiveElement.ExtraBackBoards
-        etbxExtraFr.Text = keActiveElement.ExtraFrontBoards
-        etbxExtraCr.Text = keActiveElement.ExtraCrossBraces
+        etbxExtraBa.Text = keActiveElement.SpareBackBoards
+        etbxExtraFr.Text = keActiveElement.SpareFrontBoards
+        etbxExtraCr.Text = keActiveElement.SpareCrossBraces
+
+        ' Diagram Output
+        pbxDiagramBox.Image = keActiveElement.CreateDiagram()
 
         ' Project outputs
         lblPrjOutBa.Text = "0"
@@ -71,13 +80,14 @@ Public Class formMain
             lblPrjOutBa.Text = Str(Val(lblPrjOutBa.Text) + keElement.BackBoards)
             lblPrjOutCr.Text = Str(Val(lblPrjOutCr.Text) + keElement.CrossBraces)
 
-            lblPrjExtraFr.Text = Str(Val(lblPrjExtraFr.Text) + keElement.ExtraFrontBoards)
-            lblPrjExtraBa.Text = Str(Val(lblPrjExtraBa.Text) + keElement.ExtraBackBoards)
-            lblPrjExtraCr.Text = Str(Val(lblPrjExtraCr.Text) + keElement.ExtraCrossBraces)
+            lblPrjExtraFr.Text = Str(Val(lblPrjExtraFr.Text) + keElement.SpareFrontBoards)
+            lblPrjExtraBa.Text = Str(Val(lblPrjExtraBa.Text) + keElement.SpareBackBoards)
+            lblPrjExtraCr.Text = Str(Val(lblPrjExtraCr.Text) + keElement.SpareCrossBraces)
         Next
 
         lblSheetsUsed.Text = prjActiveProject.SheetsUsed
-        lblWaste.Text = Str(prjActiveProject.WasteSquareMillimetreage / 1000000) & " m^2"
+        lblCutsToBeMade.Text = prjActiveProject.CutsMade
+        lblWaste.Text = Str(prjActiveProject.WasteSquareMillimetreage / 1000000)
     End Sub
 
 
@@ -140,71 +150,13 @@ Public Class formMain
 
         Select Case etbx.Name
             Case "etbxExtraFr"
-                keActiveElement.ExtraFrontBoards = Val(etbx.Text)
+                keActiveElement.SpareFrontBoards = Val(etbx.Text)
             Case "etbxExtraBa"
-                keActiveElement.ExtraBackBoards = Val(etbx.Text)
+                keActiveElement.SpareBackBoards = Val(etbx.Text)
             Case "etbxExtraCr"
-                keActiveElement.ExtraCrossBraces = Val(etbx.Text)
+                keActiveElement.SpareCrossBraces = Val(etbx.Text)
         End Select
         UpdateOutputs()
-    End Sub
-    Private Sub SourceDimensionsChanged(dtbx As DistanceTextBox, e As EventArgs) Handles dtbxLenFr.LostFocus, dtbxLenBa.LostFocus, dtbxLenCr.LostFocus, dtbxHeight.LostFocus, dtbxCutWidth.LostFocus, dtbxSrcWidth.LostFocus, dtbxSrcLength.LostFocus, dtbxGapCr.LostFocus
-        Dim boolIsValidEntry As Boolean = IsValidSrcLengths(dtbxSrcLength, dtbxSrcWidth) And dtbx.Millimetres <> 0
-
-        Select Case dtbx.Name
-            Case "dtbxLenFr"
-                If Not boolIsValidEntry Then
-                    dtbx.Text = dstrLenFr.Text
-                End If
-                dstrLenFr.Text = dtbx.Text
-                My.Settings.strLenFr = dstrLenFr.Text
-            Case "dtbxLenBa"
-                If Not boolIsValidEntry Then
-                    dtbx.Text = dstrLenBa.Text
-                End If
-                dstrLenBa.Text = dtbx.Text
-                My.Settings.strLenBa = dstrLenBa.Text
-            Case "dtbxLenCr"
-                If Not boolIsValidEntry Then
-                    dtbx.Text = dstrLenCr.Text
-                End If
-                dstrLenCr.Text = dtbx.Text
-                My.Settings.strLenCr = dstrLenCr.Text
-            Case "dtbxHeight"
-                If Not boolIsValidEntry Then
-                    dtbx.Text = dstrHeight.Text
-                End If
-                dstrHeight.Text = dtbx.Text
-                My.Settings.strHeight = dstrHeight.Text
-            Case "dtbxCutWidth"
-                If Not boolIsValidEntry Then
-                    dtbx.Text = dstrCutWidth.Text
-                End If
-                dstrCutWidth.Text = dtbx.Text
-                My.Settings.strCutWidth = dstrCutWidth.Text
-            Case "dtbxSrcLength"
-                If Not boolIsValidEntry Then
-                    dtbx.Text = dstrSrcLength.Text
-                End If
-                dstrSrcLength.Text = dtbx.Text
-                My.Settings.strSrcLength = dstrSrcLength.Text
-            Case "dtbxSrcWidth"
-                If Not boolIsValidEntry Then
-                    dtbx.Text = dstrSrcWidth.Text
-                End If
-                dstrSrcWidth.Text = dtbx.Text
-                My.Settings.strSrcWidth = dstrSrcWidth.Text
-            Case "dtbxGapCr"
-                If Not boolIsValidEntry Then
-                    dtbx.Text = dstrGapCr.Text
-                End If
-                dstrGapCr.Text = dtbx.Text
-                My.Settings.strGapCr = dstrGapCr.Text
-        End Select
-        UpdateOutputs()
-    End Sub
-    Private Sub SaveGlobalSettings() Handles btnSrcSave.Click
-        My.Settings.Save()
     End Sub
 
 
@@ -273,9 +225,9 @@ Public Class formMain
             Dim strElementProps = strElement.Split(",")
             NewKitchenElement()
             keActiveElement.LinearMillimetres = Val(strElementProps(1))
-            keActiveElement.ExtraFrontBoards = Val(strElementProps(2))
-            keActiveElement.ExtraBackBoards = Val(strElementProps(3))
-            keActiveElement.ExtraCrossBraces = Val(strElementProps(4))
+            keActiveElement.SpareFrontBoards = Val(strElementProps(2))
+            keActiveElement.SpareBackBoards = Val(strElementProps(3))
+            keActiveElement.SpareCrossBraces = Val(strElementProps(4))
         Next
 
         ChangeElement()
@@ -304,22 +256,15 @@ Public Class formMain
 
     ' DIAGRAM
     '' Change/Open pages
-    Private Sub ToDiagramPageClick() Handles btnSeeMockup.Click
-        pnlEditor.Visible = False
-        pnlDiagram.Visible = True
-
-        pbxDiagramBox.Image = keActiveElement.CreateDiagram()
+    Private Sub DiagramPrefrencesClick() Handles smiDiagramPreferences.Click
+        formDiagramSettings.ShowDialog()
     End Sub
-    Private Sub ToEditorClick() Handles btnToEditor.Click
-        pnlEditor.Visible = True
-        pnlDiagram.Visible = False
-    End Sub
-    Private Sub DiagramPrefrencesClick() Handles smiDiagramPrefrences.Click
-        formSettings.ShowDialog()
+    Private Sub SourcePrefrencesClick() Handles smiSourcePreferences.Click
+        formSourceSettings.ShowDialog()
     End Sub
 
     '' Save diagram
-    Private Sub SaveDiagramClick() Handles btnSaveDiagram.Click, smiExportDiagram.Click
+    Private Sub SaveDiagramClick() Handles btnSaveDiagram.Click
         sdImageSaveDialog.ShowDialog()
         If IsPathNothing(sdImageSaveDialog.FileName) Then
             Exit Sub
@@ -345,10 +290,6 @@ Public Class formMain
     End Sub
 
     Private Sub ExtraTextChanged(sender As Object, e As EventArgs) Handles etbxExtraFr.LostFocus, etbxExtraCr.LostFocus, etbxExtraBa.LostFocus
-
-    End Sub
-
-    Private Sub SourceDimensionsChanged(sender As Object, e As EventArgs) Handles dtbxSrcWidth.LostFocus, dtbxSrcLength.LostFocus, dtbxLenFr.LostFocus, dtbxLenCr.LostFocus, dtbxLenBa.LostFocus, dtbxHeight.LostFocus, dtbxGapCr.LostFocus, dtbxCutWidth.LostFocus
 
     End Sub
 End Class

@@ -88,18 +88,16 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="classEscapableTextBox.vb">
+    <Compile Include="cntrlEscapableTextBox.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="classDistanceString.vb" />
-    <Compile Include="classDistanceTextBox.vb">
+    <Compile Include="cntrlDistanceTextBox.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="classKitchenElement.vb" />
     <Compile Include="classProject.vb" />
     <Compile Include="classSaveFile.vb" />
-    <Compile Include="classSrcSheet.vb" />
-    <Compile Include="classSrcStrip.vb" />
     <Compile Include="formMain.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -107,10 +105,16 @@
       <DependentUpon>formMain.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formSettings.Designer.vb">
-      <DependentUpon>formSettings.vb</DependentUpon>
+    <Compile Include="formDiagramSettings.Designer.vb">
+      <DependentUpon>formDiagramSettings.vb</DependentUpon>
     </Compile>
-    <Compile Include="formSettings.vb">
+    <Compile Include="formDiagramSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formSourceSettings.Designer.vb">
+      <DependentUpon>formSourceSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="formSourceSettings.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="mdlVariables.vb" />
@@ -136,8 +140,11 @@
     <EmbeddedResource Include="formMain.resx">
       <DependentUpon>formMain.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formSettings.resx">
-      <DependentUpon>formSettings.vb</DependentUpon>
+    <EmbeddedResource Include="formDiagramSettings.resx">
+      <DependentUpon>formDiagramSettings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formSourceSettings.resx">
+      <DependentUpon>formSourceSettings.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
