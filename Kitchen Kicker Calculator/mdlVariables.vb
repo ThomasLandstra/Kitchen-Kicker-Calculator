@@ -14,13 +14,13 @@
     Public dstrGapCr As DistanceString = New DistanceString(My.Settings.strGapCr)
 
     ' Properties with
-    Public ReadOnly Property LenLongSide As UInt16
+    Public ReadOnly Property ui16LenLongSide As UInt16
         Get
             Return Math.Max(dstrSrcLength.Millimetres, dstrSrcWidth.Millimetres)
         End Get
     End Property
 
-    Public ReadOnly Property LenShortSide As UInt16
+    Public ReadOnly Property ui16LenShortSide As UInt16
         Get
             Return Math.Min(dstrSrcLength.Millimetres, dstrSrcWidth.Millimetres)
         End Get

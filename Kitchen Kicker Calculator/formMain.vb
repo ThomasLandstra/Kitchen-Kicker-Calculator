@@ -53,7 +53,7 @@ Public Class formMain
 
         lblSheetsUsed.Text = prjActiveProject.SheetsUsed
         lblCutsToBeMade.Text = prjActiveProject.CutsMade
-        lblWaste.Text = Str(prjActiveProject.WasteSquareMillimetreage / 1000000)
+        lblWaste.Text = Str(Math.Round(prjActiveProject.WasteSquareMillimetreage / 1000000, 3))
     End Sub
 
 
@@ -170,6 +170,7 @@ Public Class formMain
         UpdateOutputs()
     End Sub
     Private Sub SaveDiagramClick() Handles btnSaveDiagram.Click
+        If keActiveElement.LinearMillimetres = 0 Then Exit Sub
         sdImageSaveDialog.ShowDialog()
         If IsPathNothing(sdImageSaveDialog.FileName) Then
             Exit Sub
@@ -297,11 +298,33 @@ Public Class formMain
     End Sub
 
 
-    '' PREFERENCES BUTTONS
+    '' Oreferences Buttons
     Private Sub DiagramPrefrencesClick() Handles smiDiagramPreferences.Click
         formDiagramSettings.ShowDialog()
     End Sub
     Private Sub SourcePrefrencesClick() Handles smiSourcePreferences.Click
         formSourceSettings.ShowDialog()
+    End Sub
+
+
+
+    ' HELP BUTTON
+    Private Sub HelpButtonClick() Handles btnHelp.Click
+        MsgBox("
+The min (minimum) column:
+The minimum number of this part needed to make a kitchen of this size.
+
+Spares column:
+The number of extra parts you wish to be added to the element
+
+Sheets Used:
+The number of source material sheets that are required to cut the parts from
+
+Cuts to be made:
+The number of cuts to be made across all the sheets
+
+Waste m^2:
+The square meterage of source material which is not being used for any purpose
+        ".Trim())
     End Sub
 End Class

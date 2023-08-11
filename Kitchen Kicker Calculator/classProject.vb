@@ -50,10 +50,26 @@
             ' How many strips per sheet (short side length /(height + cut width))
             Dim bytStripsPerSheet As Byte = Math.Floor(ui16LenShortSide / (dstrHeight.Millimetres + dstrCutWidth.Millimetres))
 
+            ' Do the strips but perfectly
+            If (bytStripsPerSheet + 1) * (dstrHeight.Millimetres + dstrCutWidth.Millimetres) - dstrCutWidth.Millimetres = ui16LenShortSide Then
+                bytStripsPerSheet += 1
+            End If
+
             ' How many of each componenet can fit in a strip
             Dim bytFrPerStrip As Byte = Math.Floor(ui16LenLongSide / (dstrLenFr.Millimetres + dstrCutWidth.Millimetres))
             Dim bytBaPerStrip As Byte = Math.Floor(ui16LenLongSide / (dstrLenBa.Millimetres + dstrCutWidth.Millimetres))
             Dim bytCrPerStrip As Byte = Math.Floor(ui16LenLongSide / (dstrLenCr.Millimetres + dstrCutWidth.Millimetres))
+
+            ' Check if any of the strips fit perfectly
+            If (bytFrPerStrip + 1) * (dstrLenFr.Millimetres + dstrCutWidth.Millimetres) - dstrCutWidth.Millimetres = ui16LenLongSide Then
+                bytFrPerStrip += 1
+            End If
+            If (bytBaPerStrip + 1) * (dstrLenBa.Millimetres + dstrCutWidth.Millimetres) - dstrCutWidth.Millimetres = ui16LenLongSide Then
+                bytBaPerStrip += 1
+            End If
+            If (bytCrPerStrip + 1) * (dstrLenCr.Millimetres + dstrCutWidth.Millimetres) - dstrCutWidth.Millimetres = ui16LenLongSide Then
+                bytBaPerStrip += 1
+            End If
 
             ' Find how many strips are required to make every part
             Dim ui16StripsNeeded As UInt16
@@ -68,22 +84,29 @@
     End Property
     Public ReadOnly Property CutsMade As UInt16
         Get
-            ' NOTE:
-            ' Every strip will need 1 on its right unless a sheet can hold
-            ' strips with no waste leftover, in which case the last strip
-            ' will not need a cut as it will be next to an edge. The same
-            ' principal applies to components in each strip
-
-            ' Find how many strips per sheet
+            ' How many strips per sheet (short side length /(height + cut width))
             Dim bytStripsPerSheet As Byte = Math.Floor(ui16LenShortSide / (dstrHeight.Millimetres + dstrCutWidth.Millimetres))
 
-            ' Check if the short side can be divided evenly with no waste
-            Dim boolIsSheetPerfectFit As Boolean = Not ui16LenShortSide - (bytStripsPerSheet * (dstrHeight.Millimetres + dstrCutWidth.Millimetres) - dstrCutWidth.Millimetres)
+            ' Do the strips but perfectly
+            If (bytStripsPerSheet + 1) * (dstrHeight.Millimetres + dstrCutWidth.Millimetres) - dstrCutWidth.Millimetres = ui16LenShortSide Then
+                bytStripsPerSheet += 1
+            End If
 
             ' How many of each componenet can fit in a strip
             Dim bytFrPerStrip As Byte = Math.Floor(ui16LenLongSide / (dstrLenFr.Millimetres + dstrCutWidth.Millimetres))
             Dim bytBaPerStrip As Byte = Math.Floor(ui16LenLongSide / (dstrLenBa.Millimetres + dstrCutWidth.Millimetres))
             Dim bytCrPerStrip As Byte = Math.Floor(ui16LenLongSide / (dstrLenCr.Millimetres + dstrCutWidth.Millimetres))
+
+            ' Check if any of the strips fit perfectly
+            If (bytFrPerStrip + 1) * (dstrLenFr.Millimetres + dstrCutWidth.Millimetres) - dstrCutWidth.Millimetres = ui16LenLongSide Then
+                bytFrPerStrip += 1
+            End If
+            If (bytBaPerStrip + 1) * (dstrLenBa.Millimetres + dstrCutWidth.Millimetres) - dstrCutWidth.Millimetres = ui16LenLongSide Then
+                bytBaPerStrip += 1
+            End If
+            If (bytCrPerStrip + 1) * (dstrLenCr.Millimetres + dstrCutWidth.Millimetres) - dstrCutWidth.Millimetres = ui16LenLongSide Then
+                bytBaPerStrip += 1
+            End If
 
             ' Find how many strips are required to make every part
             Dim ui16StripsNeeded As UInt16
@@ -98,8 +121,8 @@
             ' Find out how many strips cannot fit perfectly into sheets
             Dim bytRemainingStrips As Byte = ui16StripsNeeded Mod bytStripsPerSheet
 
-            ' whole boards used * (strips per sheet - (1 if is a perfect fir)) + remaining strips
-            Dim ui16LongCuts As UInt16 = (bytWholeBoards * (bytStripsPerSheet - boolIsSheetPerfectFit)) + bytRemainingStrips
+            ' whole boards used * strips per sheet + remaining strips
+            Dim ui16LongCuts As UInt16 = (bytWholeBoards * bytStripsPerSheet) + bytRemainingStrips
 
             ' Calculate cuts from each part
             Dim ui16ShortCuts As UInt16 = 0
@@ -112,11 +135,29 @@
     Public ReadOnly Property WasteSquareMillimetreage As UInt32
         Get
             ' Find the area taken up by each componenet
-            Dim ui32AreaFr As UInt32 = Convert.ToUInt32(dstrLenFr.Millimetres) * dstrHeight.Millimetres
-            Dim ui32AreaBa As UInt32 = Convert.ToUInt32(dstrLenBa.Millimetres) * dstrHeight.Millimetres
-            Dim ui32AreaCr As UInt32 = Convert.ToUInt32(dstrLenCr.Millimetres) * dstrHeight.Millimetres
+            Dim ui32AreaFr As UInt32 = Convert.ToUInt32(dstrLenFr.Millimetres + dstrCutWidth.Millimetres) * (dstrHeight.Millimetres + dstrCutWidth.Millimetres)
+            Dim ui32AreaBa As UInt32 = Convert.ToUInt32(dstrLenBa.Millimetres + dstrCutWidth.Millimetres) * (dstrHeight.Millimetres + dstrCutWidth.Millimetres)
+            Dim ui32AreaCr As UInt32 = Convert.ToUInt32(dstrLenCr.Millimetres + dstrCutWidth.Millimetres) * (dstrHeight.Millimetres + dstrCutWidth.Millimetres)
+
+            ' How many of each componenet can fit in a strip
+            Dim bytFrPerStrip As Byte = Math.Floor(ui16LenLongSide / (dstrLenFr.Millimetres + dstrCutWidth.Millimetres))
+            Dim bytBaPerStrip As Byte = Math.Floor(ui16LenLongSide / (dstrLenBa.Millimetres + dstrCutWidth.Millimetres))
+            Dim bytCrPerStrip As Byte = Math.Floor(ui16LenLongSide / (dstrLenCr.Millimetres + dstrCutWidth.Millimetres))
 
             Dim ui32AreaRequired As UInt32 = ui32AreaFr * Me.TotalFrontBoards + ui32AreaBa * Me.TotalBackBoards + ui32AreaCr * Me.TotalCrossBraces
+
+            ' Remove area in case of perfect fit
+            ' Check if any of the strips fit perfectly, if so do:
+            ' Area -= Number of full strips * cut width
+            If (bytFrPerStrip + 1) * (dstrLenFr.Millimetres + dstrCutWidth.Millimetres) - dstrCutWidth.Millimetres = ui16LenLongSide Then
+                ui32AreaRequired -= Math.Floor(Me.TotalFrontBoards / (bytFrPerStrip + 1)) * dstrCutWidth.Millimetres
+            End If
+            If (bytBaPerStrip + 1) * (dstrLenBa.Millimetres + dstrCutWidth.Millimetres) - dstrCutWidth.Millimetres = ui16LenLongSide Then
+                ui32AreaRequired -= Math.Floor(Me.TotalBackBoards / (bytBaPerStrip + 1)) * dstrCutWidth.Millimetres
+            End If
+            If (bytCrPerStrip + 1) * (dstrLenCr.Millimetres + dstrCutWidth.Millimetres) - dstrCutWidth.Millimetres = ui16LenLongSide Then
+                ui32AreaRequired -= Math.Floor(Me.TotalCrossBraces / (bytCrPerStrip + 1)) * dstrCutWidth.Millimetres
+            End If
 
             Dim ui32AreaTotal As UInt32 = Convert.ToUInt32(dstrSrcLength.Millimetres) * dstrSrcWidth.Millimetres * SheetsUsed
 
