@@ -1,15 +1,15 @@
 ﻿' DO YOURSELF A FAVOR, COLLAPSE ALL SUBS & FUNCTIONS NOW
 ' 
 ' NAMING CONVENTION:
-' TYPE                  :   RULE                :   EXAMPLE
-' Private Variable      :   _typeNameHere       :   _ui16Millimetres
-' Regular Variable      :   typeNameHere        :   ui16Millimetres
-' Enum                  :   EnumName            :   SaveResult
-' Function/Subroutine   :   FunctionName        :   MainFormLoad
-' Class Name            :   ClassName           :   Project
-' File Name             :   typeFileName        :   cntrlDistanceTextBox
-' Method                :   MethodName          :   MethodName
-' Property              :   PropertyName        :   SpareFrontBoards
+' TYPE                  :   RULE                :   EXAMPLE                 :   NOTE
+' Private Variable      :   _typeNameHere       :   _ui16Millimetres        :
+' Regular Variable      :   typeNameHere        :   ui16Millimetres         :
+' Enum                  :   EnumName            :   SaveResult              :
+' Function/Subroutine   :   FunctionName        :   MainFormLoad            :
+' Class Name            :   ClassName           :   Project                 :
+' File Name             :   typeFileName        :   cntrlDistanceTextBox    :
+' Method                :   MethodName          :   MethodName              :
+' Property              :   PropertyName        :   Me.SpareFrontBoards     :
 
 Imports System.Drawing.Imaging
 
@@ -58,10 +58,7 @@ Public Class formMain
 
 
 
-
-
     ' EVENT HANDLERS
-
 
     '' First load & project start
     Private Sub MainFormLoad() Handles MyBase.Load ' Initial load
@@ -92,7 +89,7 @@ Public Class formMain
     End Sub
 
 
-    '' ELEMENT SELECTION (Dropdown, New & Delete)
+    '' ELEMENT SELECTION (Dropdown, New & Delete, Rename)
     Private Sub NewKitchenElement() Handles btnNewElement.Click
         ' Create element
         keActiveElement = prjActiveProject.NewKitchenElement()
@@ -127,12 +124,14 @@ Public Class formMain
         Next
 
         ' Update values
-        dtbxLinearMetres.Text = keActiveElement.LinearString
+        dtbxLinearMetres.Text = keActiveElement.LinearDistanceText
         UpdateOutputs()
     End Sub
     Private Sub RenameElement() Handles cmbxElement.LostFocus
-        cmbxElement.Items.Remove(keActiveElement.Name)
+        Dim strNameToRemove As String = keActiveElement.Name
         keActiveElement.Name = cmbxElement.Text
+        cmbxElement.Items.Remove(strNameToRemove)
+
         ' Add element to combobox
         cmbxElement.Items.Add(keActiveElement.Name)
         cmbxElement.SelectedItem = keActiveElement.Name
@@ -140,11 +139,16 @@ Public Class formMain
 
 
 
-    ' ELEMENT INPUTS CHANGED
-    ' Text Inputs
+    ' ELEMENT INPUTS
+    ' Text Inputs & Outputs
     Private Sub LinearMetresChanged() Handles dtbxLinearMetres.LostFocus
-        keActiveElement.LinearString = dtbxLinearMetres.Text
-        UpdateOutputs()
+        If dtbxLinearMetres.Millimetres > 20000 Then
+            dtbxLinearMetres.Text = keActiveElement.LinearDistanceText
+            Warning("Maximum Linear meters is 20,000 mm")
+        Else
+            keActiveElement.LinearDistanceText = dtbxLinearMetres.Text
+            UpdateOutputs()
+        End If
     End Sub
     Private Sub ExtraTextChanged(etbx As EscapableTextBox, e As EventArgs) Handles etbxExtraFr.LostFocus, etbxExtraBa.LostFocus, etbxExtraCr.LostFocus
         If Not IsNumeric(etbx.Text) Then
@@ -165,10 +169,32 @@ Public Class formMain
         End Select
         UpdateOutputs()
     End Sub
+    Private Sub SaveDiagramClick() Handles btnSaveDiagram.Click
+        sdImageSaveDialog.ShowDialog()
+        If IsPathNothing(sdImageSaveDialog.FileName) Then
+            Exit Sub
+        End If
+
+        Dim strExtension As String = sdImageSaveDialog.FileName.Split(".").Last
+        Dim ifImageFormat As ImageFormat
+
+        Select Case strExtension
+            Case "jpeg"
+                ifImageFormat = ImageFormat.Jpeg
+            Case "png"
+                ifImageFormat = ImageFormat.Png
+            Case Else
+                Exit Sub
+        End Select
+
+        pbxDiagramBox.Image.Save(sdImageSaveDialog.FileName, ifImageFormat)
+    End Sub
 
 
-    ' MENU CONTEXT STRIP BUTTONS
-    '' Functions
+
+    '' MENU CONTEXT STRIP BUTTONS 
+    '' File Management
+    ''' Functions
     Private Function PromptSaveProject() As Boolean
         If prjActiveProject.SaveFile.IsSaved Then Return True
 
@@ -182,12 +208,14 @@ Public Class formMain
         Return prjActiveProject.SaveFile.IsSaved
     End Function
     Private Sub PromptNewSave()
+        ' Show dialog
         Dim drResult = sdSaveDialog.ShowDialog()
+        ' If the user did not canel then create new save location
         If drResult <> DialogResult.Cancel Then
             prjActiveProject.NewSave(sdSaveDialog.FileName)
         End If
     End Sub
-    '' Buttons
+    ''' Buttons
     Private Sub NewProject() Handles smiNew.Click
         ' Prompt the user if they want to save
         If Not PromptSaveProject() Then ' Save aborted
@@ -243,8 +271,13 @@ Public Class formMain
         prjActiveProject.SaveFile.IsSaved = True
     End Sub
     Private Sub SaveProject() Handles smiSave.Click
+        ' If the project is already saved then skip process
+        If prjActiveProject.SaveFile.IsSaved Then Exit Sub
+
+        ' Save and show relevant errors
         Dim srSaveResult As SaveResult = prjActiveProject.SaveFile.Save()
-        If srSaveResult = SaveResult.InvalidPath Then
+        If srSaveResult = SaveResult.InvalidPath Then ' If invalid path
+            ' Prompt the user to pick a new path
             PromptNewSave()
             ' Try to save again
             srSaveResult = prjActiveProject.SaveFile.Save()
@@ -254,7 +287,9 @@ Public Class formMain
         End If
     End Sub
     Private Sub SaveAsProject() Handles smiSaveAs.Click
+        ' Prompt the user to pick a new save location
         PromptNewSave()
+        ' Save and show error is needed
         Dim srSaveResult As SaveResult = prjActiveProject.SaveFile.Save()
         If srSaveResult <> SaveResult.Success Then
             Warning("There was an error whilst saving")
@@ -262,34 +297,11 @@ Public Class formMain
     End Sub
 
 
-    ' DIAGRAM
-    '' Change/Open pages
+    '' PREFERENCES BUTTONS
     Private Sub DiagramPrefrencesClick() Handles smiDiagramPreferences.Click
         formDiagramSettings.ShowDialog()
     End Sub
     Private Sub SourcePrefrencesClick() Handles smiSourcePreferences.Click
         formSourceSettings.ShowDialog()
-    End Sub
-
-    '' Save diagram
-    Private Sub SaveDiagramClick() Handles btnSaveDiagram.Click
-        sdImageSaveDialog.ShowDialog()
-        If IsPathNothing(sdImageSaveDialog.FileName) Then
-            Exit Sub
-        End If
-
-        Dim strExtension As String = sdImageSaveDialog.FileName.Split(".").Last
-        Dim ifImageFormat As ImageFormat
-
-        Select Case strExtension
-            Case "jpeg"
-                ifImageFormat = ImageFormat.Jpeg
-            Case "png"
-                ifImageFormat = ImageFormat.Png
-            Case Else
-                Exit Sub
-        End Select
-
-        pbxDiagramBox.Image.Save(sdImageSaveDialog.FileName, ifImageFormat)
     End Sub
 End Class

@@ -26,12 +26,12 @@ Partial Class formDiagramSettings
         Me.etbxWidthCr = New Kitchen_Kicker_Calculator.EscapableTextBox()
         Me.etbxWidthFr = New Kitchen_Kicker_Calculator.EscapableTextBox()
         Me.etbxWidthBa = New Kitchen_Kicker_Calculator.EscapableTextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
+        Me.lblColourBa = New System.Windows.Forms.Label()
+        Me.lblColourFr = New System.Windows.Forms.Label()
+        Me.lblColourCr = New System.Windows.Forms.Label()
+        Me.lblStrokeBa = New System.Windows.Forms.Label()
+        Me.lblStrokeFr = New System.Windows.Forms.Label()
+        Me.lblStrokeCr = New System.Windows.Forms.Label()
         Me.btnBBColour = New System.Windows.Forms.Button()
         Me.btnFBColour = New System.Windows.Forms.Button()
         Me.btnCBColour = New System.Windows.Forms.Button()
@@ -51,12 +51,12 @@ Partial Class formDiagramSettings
         Me.tblMain.Controls.Add(Me.etbxWidthCr, 1, 5)
         Me.tblMain.Controls.Add(Me.etbxWidthFr, 1, 4)
         Me.tblMain.Controls.Add(Me.etbxWidthBa, 1, 3)
-        Me.tblMain.Controls.Add(Me.Label1, 0, 0)
-        Me.tblMain.Controls.Add(Me.Label2, 0, 1)
-        Me.tblMain.Controls.Add(Me.Label3, 0, 2)
-        Me.tblMain.Controls.Add(Me.Label4, 0, 3)
-        Me.tblMain.Controls.Add(Me.Label5, 0, 4)
-        Me.tblMain.Controls.Add(Me.Label6, 0, 5)
+        Me.tblMain.Controls.Add(Me.lblColourBa, 0, 0)
+        Me.tblMain.Controls.Add(Me.lblColourFr, 0, 1)
+        Me.tblMain.Controls.Add(Me.lblColourCr, 0, 2)
+        Me.tblMain.Controls.Add(Me.lblStrokeBa, 0, 3)
+        Me.tblMain.Controls.Add(Me.lblStrokeFr, 0, 4)
+        Me.tblMain.Controls.Add(Me.lblStrokeCr, 0, 5)
         Me.tblMain.Controls.Add(Me.btnBBColour, 1, 0)
         Me.tblMain.Controls.Add(Me.btnFBColour, 1, 1)
         Me.tblMain.Controls.Add(Me.btnCBColour, 1, 2)
@@ -79,7 +79,7 @@ Partial Class formDiagramSettings
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.etbxWidthCr.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.etbxWidthCr.Location = New System.Drawing.Point(314, 194)
-        Me.etbxWidthCr.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.etbxWidthCr.Margin = New System.Windows.Forms.Padding(4)
         Me.etbxWidthCr.MaxLength = 2
         Me.etbxWidthCr.Name = "etbxWidthCr"
         Me.etbxWidthCr.Size = New System.Drawing.Size(41, 26)
@@ -91,7 +91,7 @@ Partial Class formDiagramSettings
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.etbxWidthFr.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.etbxWidthFr.Location = New System.Drawing.Point(314, 156)
-        Me.etbxWidthFr.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.etbxWidthFr.Margin = New System.Windows.Forms.Padding(4)
         Me.etbxWidthFr.MaxLength = 2
         Me.etbxWidthFr.Name = "etbxWidthFr"
         Me.etbxWidthFr.Size = New System.Drawing.Size(41, 26)
@@ -103,95 +103,95 @@ Partial Class formDiagramSettings
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.etbxWidthBa.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.etbxWidthBa.Location = New System.Drawing.Point(314, 118)
-        Me.etbxWidthBa.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.etbxWidthBa.Margin = New System.Windows.Forms.Padding(4)
         Me.etbxWidthBa.MaxLength = 2
         Me.etbxWidthBa.Name = "etbxWidthBa"
         Me.etbxWidthBa.Size = New System.Drawing.Size(41, 26)
         Me.etbxWidthBa.TabIndex = 2
         '
-        'Label1
+        'lblColourBa
         '
-        Me.Label1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.lblColourBa.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label1.AutoEllipsis = True
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(3, 0)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(3, 0, 3, 6)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(304, 24)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Back Board Colour"
+        Me.lblColourBa.AutoEllipsis = True
+        Me.lblColourBa.AutoSize = True
+        Me.lblColourBa.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblColourBa.Location = New System.Drawing.Point(3, 0)
+        Me.lblColourBa.Margin = New System.Windows.Forms.Padding(3, 0, 3, 6)
+        Me.lblColourBa.Name = "lblColourBa"
+        Me.lblColourBa.Size = New System.Drawing.Size(304, 24)
+        Me.lblColourBa.TabIndex = 0
+        Me.lblColourBa.Text = "Back Board Colour"
         '
-        'Label2
+        'lblColourFr
         '
-        Me.Label2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.lblColourFr.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label2.AutoEllipsis = True
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(3, 38)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(3, 0, 3, 6)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(304, 24)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Front Board Colour"
+        Me.lblColourFr.AutoEllipsis = True
+        Me.lblColourFr.AutoSize = True
+        Me.lblColourFr.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblColourFr.Location = New System.Drawing.Point(3, 38)
+        Me.lblColourFr.Margin = New System.Windows.Forms.Padding(3, 0, 3, 6)
+        Me.lblColourFr.Name = "lblColourFr"
+        Me.lblColourFr.Size = New System.Drawing.Size(304, 24)
+        Me.lblColourFr.TabIndex = 1
+        Me.lblColourFr.Text = "Front Board Colour"
         '
-        'Label3
+        'lblColourCr
         '
-        Me.Label3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.lblColourCr.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label3.AutoEllipsis = True
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(3, 76)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(3, 0, 3, 6)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(304, 24)
-        Me.Label3.TabIndex = 2
-        Me.Label3.Text = "Cross Brace Colour"
+        Me.lblColourCr.AutoEllipsis = True
+        Me.lblColourCr.AutoSize = True
+        Me.lblColourCr.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblColourCr.Location = New System.Drawing.Point(3, 76)
+        Me.lblColourCr.Margin = New System.Windows.Forms.Padding(3, 0, 3, 6)
+        Me.lblColourCr.Name = "lblColourCr"
+        Me.lblColourCr.Size = New System.Drawing.Size(304, 24)
+        Me.lblColourCr.TabIndex = 2
+        Me.lblColourCr.Text = "Cross Brace Colour"
         '
-        'Label4
+        'lblStrokeBa
         '
-        Me.Label4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.lblStrokeBa.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label4.AutoEllipsis = True
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(3, 114)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(3, 0, 3, 6)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(304, 24)
-        Me.Label4.TabIndex = 3
-        Me.Label4.Text = "Back Board Stroke Width"
+        Me.lblStrokeBa.AutoEllipsis = True
+        Me.lblStrokeBa.AutoSize = True
+        Me.lblStrokeBa.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStrokeBa.Location = New System.Drawing.Point(3, 114)
+        Me.lblStrokeBa.Margin = New System.Windows.Forms.Padding(3, 0, 3, 6)
+        Me.lblStrokeBa.Name = "lblStrokeBa"
+        Me.lblStrokeBa.Size = New System.Drawing.Size(304, 24)
+        Me.lblStrokeBa.TabIndex = 3
+        Me.lblStrokeBa.Text = "Back Board Stroke Width"
         '
-        'Label5
+        'lblStrokeFr
         '
-        Me.Label5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.lblStrokeFr.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label5.AutoEllipsis = True
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(3, 152)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(3, 0, 3, 6)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(304, 24)
-        Me.Label5.TabIndex = 4
-        Me.Label5.Text = "Front Board Stroke Width"
+        Me.lblStrokeFr.AutoEllipsis = True
+        Me.lblStrokeFr.AutoSize = True
+        Me.lblStrokeFr.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStrokeFr.Location = New System.Drawing.Point(3, 152)
+        Me.lblStrokeFr.Margin = New System.Windows.Forms.Padding(3, 0, 3, 6)
+        Me.lblStrokeFr.Name = "lblStrokeFr"
+        Me.lblStrokeFr.Size = New System.Drawing.Size(304, 24)
+        Me.lblStrokeFr.TabIndex = 4
+        Me.lblStrokeFr.Text = "Front Board Stroke Width"
         '
-        'Label6
+        'lblStrokeCr
         '
-        Me.Label6.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.lblStrokeCr.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label6.AutoEllipsis = True
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(3, 190)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(3, 0, 3, 6)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(304, 24)
-        Me.Label6.TabIndex = 5
-        Me.Label6.Text = "Cross Brace Stroke Width"
+        Me.lblStrokeCr.AutoEllipsis = True
+        Me.lblStrokeCr.AutoSize = True
+        Me.lblStrokeCr.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStrokeCr.Location = New System.Drawing.Point(3, 190)
+        Me.lblStrokeCr.Margin = New System.Windows.Forms.Padding(3, 0, 3, 6)
+        Me.lblStrokeCr.Name = "lblStrokeCr"
+        Me.lblStrokeCr.Size = New System.Drawing.Size(304, 24)
+        Me.lblStrokeCr.TabIndex = 5
+        Me.lblStrokeCr.Text = "Cross Brace Stroke Width"
         '
         'btnBBColour
         '
@@ -201,7 +201,7 @@ Partial Class formDiagramSettings
         Me.btnBBColour.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnBBColour.ForeColor = System.Drawing.Color.Transparent
         Me.btnBBColour.Location = New System.Drawing.Point(315, 5)
-        Me.btnBBColour.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.btnBBColour.Margin = New System.Windows.Forms.Padding(5)
         Me.btnBBColour.Name = "btnBBColour"
         Me.btnBBColour.Size = New System.Drawing.Size(68, 28)
         Me.btnBBColour.TabIndex = 6
@@ -215,7 +215,7 @@ Partial Class formDiagramSettings
         Me.btnFBColour.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnFBColour.ForeColor = System.Drawing.Color.Transparent
         Me.btnFBColour.Location = New System.Drawing.Point(315, 43)
-        Me.btnFBColour.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.btnFBColour.Margin = New System.Windows.Forms.Padding(5)
         Me.btnFBColour.Name = "btnFBColour"
         Me.btnFBColour.Size = New System.Drawing.Size(68, 28)
         Me.btnFBColour.TabIndex = 7
@@ -229,7 +229,7 @@ Partial Class formDiagramSettings
         Me.btnCBColour.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCBColour.ForeColor = System.Drawing.Color.Transparent
         Me.btnCBColour.Location = New System.Drawing.Point(315, 81)
-        Me.btnCBColour.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.btnCBColour.Margin = New System.Windows.Forms.Padding(5)
         Me.btnCBColour.Name = "btnCBColour"
         Me.btnCBColour.Size = New System.Drawing.Size(68, 28)
         Me.btnCBColour.TabIndex = 8
@@ -270,12 +270,12 @@ Partial Class formDiagramSettings
     End Sub
 
     Friend WithEvents tblMain As TableLayoutPanel
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label5 As Label
-    Friend WithEvents Label6 As Label
+    Friend WithEvents lblColourBa As Label
+    Friend WithEvents lblColourFr As Label
+    Friend WithEvents lblColourCr As Label
+    Friend WithEvents lblStrokeBa As Label
+    Friend WithEvents lblStrokeFr As Label
+    Friend WithEvents lblStrokeCr As Label
     Friend WithEvents btnBBColour As Button
     Friend WithEvents btnFBColour As Button
     Friend WithEvents btnCBColour As Button

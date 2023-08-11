@@ -31,5 +31,11 @@ Kitchen Kicker Calculator
 <member name="M:Kitchen_Kicker_Calculator.formMain.AddHandlers">
  Handlers which cannot manually be added
 </member>
+<member name="M:Kitchen_Kicker_Calculator.formMain.PromptSaveProject">
+ Functions
+</member>
+<member name="M:Kitchen_Kicker_Calculator.formMain.NewProject">
+ Buttons
+</member>
 </members>
 </doc>

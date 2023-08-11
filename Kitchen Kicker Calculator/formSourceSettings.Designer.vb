@@ -348,7 +348,6 @@ Partial Class formSourceSettings
         '
         'formSourceSettings
         '
-        Me.AcceptButton = Me.btnSrcSave
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(893, 212)
@@ -356,7 +355,7 @@ Partial Class formSourceSettings
         Me.Controls.Add(Me.tblSrcMaterials)
         Me.Controls.Add(Me.lblProjectSettings)
         Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.MinimumSize = New System.Drawing.Size(909, 249)
+        Me.MinimumSize = New System.Drawing.Size(909, 248)
         Me.Name = "formSourceSettings"
         Me.Text = "formSourceSettings"
         Me.tblSrcMaterials.ResumeLayout(False)

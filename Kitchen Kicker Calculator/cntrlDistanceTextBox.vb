@@ -1,12 +1,21 @@
 ﻿Public Class DistanceTextBox
     Inherits EscapableTextBox
 
-    Private ReadOnly _dstrDistance As New DistanceString()
+    ' PRIVATE VARIABLES
+    ReadOnly _dstrDistance As New DistanceString()
 
-    Public Sub New()
-        MyBase.New()
+
+
+    ' PRIVATE EVENT HANDLERS
+    Private Sub FocusWasLost() Handles Me.LostFocus
+        _dstrDistance.Text = Text
+        Text = _dstrDistance.Text
     End Sub
 
+
+
+    ' PUBLIC PROPERTIES
+    '' interfaces with distance text object
     Public Overrides Property Text As String
         Get
             Return MyBase.Text
@@ -16,7 +25,6 @@
             _dstrDistance.Text = MyBase.Text
         End Set
     End Property
-
     Public Property Millimetres As UInt16
         Get
 
@@ -27,7 +35,6 @@
             Text = _dstrDistance.Text
         End Set
     End Property
-
     Public Property Unit As String
         Get
             Return _dstrDistance.Unit
@@ -38,9 +45,10 @@
         End Set
     End Property
 
-    Private Sub FocusWasLost() Handles Me.LostFocus
-        _dstrDistance.Text = Text
-        Text = _dstrDistance.Text
-    End Sub
 
+
+    ' METHODS
+    Public Sub New()
+        MyBase.New()
+    End Sub
 End Class
